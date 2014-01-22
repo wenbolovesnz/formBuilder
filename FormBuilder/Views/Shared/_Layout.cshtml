@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/themes/base/css")
+</head>
+    <body>
+        <!--[if lt IE 9]><p class="error" style="clear:both;">'Angular' requires browser support for defined properties.</p><![endif]-->
+        <div id="userSettings" class="pull-right">
+            @Html.Partial("_UserSettings")
+        </div>
+
+        <div id="body">
+            @RenderBody()
+        </div>
+
+        <footer>
+            <nav>
+                <ul id="menu">                    
+                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "HelpPage" }, null)</li>
+                </ul>
+            </nav>             
+            <p>&copy; @DateTime.Now.Year - @ViewBag.Title SPA</p>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/ajaxlogin")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

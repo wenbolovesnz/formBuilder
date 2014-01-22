@@ -1,0 +1,48 @@
+﻿@model FormBuilder.Models.LoginModel
+
+@using (Html.BeginForm("JsonLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "loginForm", @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <fieldset>
+        <legend></legend>
+        
+        <div class="form-group">
+            <label class="col-md-2 control-label">@Html.LabelFor(m => m.UserName)</label>
+            <div class="col-md-10">                
+                @Html.TextBoxFor(m => m.UserName, new { autofocus = "autofocus", id = "loginName", @class = "form-control" })                
+            </div>
+            <span>
+                @Html.ValidationMessageFor(m => m.UserName)
+            </span>
+        </div>
+                
+        <div class="form-group">
+            <label class="col-md-2 control-label">@Html.LabelFor(m => m.Password)</label>
+            <div class="col-md-10">                  
+                @Html.PasswordFor(m => m.Password, new {@class="form-control"})                
+            </div>
+            <span>
+                @Html.ValidationMessageFor(m => m.Password)                
+            </span>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-md-2 control-label"></label>
+            <div class="col-md-10">                                  
+                <p>
+                @Html.CheckBoxFor(m => m.RememberMe)   @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })                
+                </p>
+            </div>
+        </div>
+                
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <input type="submit" value="Log in"  class="btn btn-default"/>
+            </div>
+        </div>                           
+       
+        @Html.ValidationSummary() 
+    </fieldset>
+    
+}
