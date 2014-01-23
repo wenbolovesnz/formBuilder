@@ -4,11 +4,13 @@ using System.Data.Entity.Infrastructure;
 using System.Security;
 using System.Security.Principal;
 using Breeze.WebApi;
+using FormBuilder.Business.Entities;
+using FormBuilder.Data;
 
 // ReSharper disable InconsistentNaming
 namespace FormBuilder.Models
 {
-    public class TodoRepository : EFContextProvider<TodoItemContext>
+    public class TodoRepository : EFContextProvider<FormBuilderContext>
     {
         public TodoRepository(IPrincipal user)
         {
@@ -77,11 +79,11 @@ namespace FormBuilder.Models
         // for db access during custom save validation. 
         // See this stackoverflow question and reply for an explanation:
         // http://stackoverflow.com/questions/14517945/using-this-context-inside-beforesaveentity
-        private TodoItemContext ValidationContext
+        private FormBuilderContext ValidationContext
         {
-            get { return _validationContext ?? (_validationContext = new TodoItemContext()); }
+            get { return _validationContext ?? (_validationContext = new FormBuilderContext()); }
         }
-        private TodoItemContext _validationContext;
+        private FormBuilderContext _validationContext;
 
         private bool throwCannotSaveEntityForThisUser()
         {

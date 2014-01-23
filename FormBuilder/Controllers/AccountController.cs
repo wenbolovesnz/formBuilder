@@ -9,6 +9,8 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using FormBuilder.Filters;
 using FormBuilder.Models;
+using FormBuilder.Business.Entities;
+using FormBuilder.Data;
 
 namespace FormBuilder.Controllers
 {
@@ -88,7 +90,7 @@ namespace FormBuilder.Controllers
         /// <param name="userName"></param>
         private static void InitiateDatabaseForNewUser(string userName)
         {
-            TodoItemContext db = new TodoItemContext();
+            FormBuilderContext db = new FormBuilderContext();
             TodoList todoList = new TodoList();
             todoList.UserId = userName;
             todoList.Title = "My Todo List #1";
@@ -271,7 +273,7 @@ namespace FormBuilder.Controllers
             if (ModelState.IsValid)
             {
                 // Insert a new user into the database
-                using (UsersContext db = new UsersContext())
+                using (FormBuilderContext db = new FormBuilderContext())
                 {
                     UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
                     // Check if user already exists

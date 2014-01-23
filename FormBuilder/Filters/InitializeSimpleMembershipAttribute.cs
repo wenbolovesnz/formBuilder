@@ -5,6 +5,7 @@ using System.Threading;
 using System.Web.Mvc;
 using WebMatrix.WebData;
 using FormBuilder.Models;
+using FormBuilder.Data;
 
 namespace FormBuilder.Filters
 {
@@ -25,11 +26,11 @@ namespace FormBuilder.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<UsersContext>(null);
+                Database.SetInitializer<FormBuilderContext>(null);
 
                 try
                 {
-                    using (var context = new UsersContext())
+                    using (var context = new FormBuilderContext())
                     {
                         if (!context.Database.Exists())
                         {
