@@ -10,8 +10,7 @@ todo.controller('TodoCtrl',
     function ($scope, datacontext, logger) {
 
         logger.log("creating TodoCtrl");
-        //var removeList = breeze.core.arrayRemoveItem;
-
+        
         $scope.todoLists = [];
         $scope.error = "";
         $scope.getTodos = getTodos;
