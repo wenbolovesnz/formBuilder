@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
-namespace FormBuilder.Models
+namespace FormBuilder.Business.Entities
 {
     /// <summary>
     /// Todo item entity

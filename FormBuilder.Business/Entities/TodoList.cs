@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using Newtonsoft.Json;
 
-namespace FormBuilder.Models
+namespace FormBuilder.Business.Entities
 {
     /// <summary>
     /// Todo list entity
