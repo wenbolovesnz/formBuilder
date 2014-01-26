@@ -8,47 +8,17 @@ namespace FormBuilder.Business.Entities
 {
     public class Question
     {
-        public int QuestionId { get; set; }
+        public int Id { get; set; }
         public string QuestionText { get; set; }
         public QuestionType QuestionType { get; set; }
-        public QuestionBehaviour QuestionBehaviour { get; set; }
+        public bool IsRequired { get; set; }
         public string Tooltip { get; set; }
-
-        public virtual List<FormDefination> FormDefinations { get; set; }
-
-        public Question()
-        {
-            FormDefinations = new List<FormDefination>();
-        }
-    }
-
-    //TODO: move to some common place.
-    public enum QuestionType
-    {
-        Integer,
-
-        String,
-
-        Date,
-
-        Money,
-
-        Boolean,
-
-        Select,
-
-        MultiSelect
-    }
-
-    public enum QuestionBehaviour
-    {
-        MandatoryVisible,
-        
-        MandatoryHidden,
-
-        OptionalVisible,
-
-        OptionalHidden
+        public string Value { get; set; }
+        public int Index { get; set; }
+        public string AnswerOptions { get; set; }
 
     }
+
+
+
 }

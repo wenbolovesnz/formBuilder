@@ -1,26 +1,58 @@
 ﻿<RecentFiles>
   <RecentFiles>
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Filters/f:InitializeSimpleMembershipAttribute.cs" caret="156" fromTop="5" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:App_Start/f:AuthConfig.cs" caret="153" fromTop="7" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Controllers/f:AccountController.cs" caret="575" fromTop="5" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:app/f:todo.main.js" caret="0" fromTop="0" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:app/f:todo.controller.js" caret="643" fromTop="11" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:App_Start/f:BundleConfig.cs" caret="1440" fromTop="13" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:app/f:todo.view.html" caret="214" fromTop="4" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:App_Start/f:FilterConfig.cs" caret="0" fromTop="0" />
-    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/f:FormBuilderContext.cs" caret="1014" fromTop="22" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:app/f:about.controller.js" caret="1746" fromTop="31" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Filters/f:ValidateHttpAntiForgeryTokenAttribute.cs" caret="0" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Account/f:Manage.cshtml" caret="92" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Home/f:_Authentication.cshtml" caret="0" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Controllers/f:HomeController.cs" caret="0" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Filters/f:InitializeSimpleMembershipAttribute.cs" caret="1766" fromTop="42" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Home/f:_Login.cshtml" caret="25" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Home/f:Index.cshtml" caret="468" fromTop="14" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Home/f:_Register.cshtml" caret="25" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Account/f:ExternalLoginFailure.cshtml" caret="0" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Account/f:ExternalLoginConfirmation.cshtml" caret="0" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Account/f:_ExternalLoginsListPartial.cshtml" caret="70" fromTop="2" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Models/f:AccountModels.cs" caret="587" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Account/f:_SetPasswordPartial.cshtml" caret="25" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Account/f:_ChangePasswordPartial.cshtml" caret="74" fromTop="3" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Controllers/f:AccountController.cs" caret="4357" fromTop="48" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Account/f:_RemoveExternalLoginsPartial.cshtml" caret="100" fromTop="4" />
+    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Configuration/f:DataBaseInitializer.cs" caret="231" fromTop="9" />
     <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/f:App.config" caret="0" fromTop="0" />
-    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:TodoList.cs" caret="0" fromTop="0" />
-    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:TodoItem.cs" caret="0" fromTop="0" />
-    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:Question.cs" caret="1036" fromTop="50" />
-    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:AccountModels.cs" caret="0" fromTop="0" />
-    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:FormDefination.cs" caret="70" fromTop="3" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:Organization.cs" caret="476" fromTop="17" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:FormDefination.cs" caret="406" fromTop="14" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:FormDefinitionSet.cs" caret="389" fromTop="12" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:Question.cs" caret="222" fromTop="7" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:User.cs" caret="288" fromTop="13" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/f:Web.config" caret="794" fromTop="13" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/d:Enums/f:QuestionType.cs" caret="352" fromTop="22" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:app/f:todo.view.html" caret="214" fromTop="4" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:App_Start/f:BundleConfig.cs" caret="1097" fromTop="27" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/f:Global.asax.cs" caret="876" fromTop="18" />
+    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/f:FormBuilderContext.cs" caret="1319" fromTop="19" />
   </RecentFiles>
   <RecentEdits>
     <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:App_Start/f:AuthConfig.cs" caret="127" fromTop="5" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Filters/f:InitializeSimpleMembershipAttribute.cs" caret="156" fromTop="5" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Controllers/f:AccountController.cs" caret="268" fromTop="9" />
     <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:app/f:todo.controller.js" caret="583" fromTop="12" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:App_Start/f:BundleConfig.cs" caret="1241" fromTop="8" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/d:Enums/f:QuestionType.cs" caret="377" fromTop="23" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Models/f:AccountModels.cs" caret="208" fromTop="6" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Controllers/f:AccountController.cs" caret="12963" fromTop="18" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Account/f:_RemoveExternalLoginsPartial.cshtml" caret="257" fromTop="10" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:FormDefinitionSet.cs" caret="731" fromTop="11" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:Organization.cs" caret="889" fromTop="31" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/f:Web.config" caret="1195" fromTop="20" />
+    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/f:App.config" caret="881" fromTop="14" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:FormDefination.cs" caret="386" fromTop="14" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:Question.cs" caret="222" fromTop="7" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:User.cs" caret="218" fromTop="10" />
+    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Configuration/f:DataBaseInitializer.cs" caret="331" fromTop="11" />
+    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/f:FormBuilderContext.cs" caret="1149" fromTop="20" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Account/f:_ChangePasswordPartial.cshtml" caret="25" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Account/f:_SetPasswordPartial.cshtml" caret="25" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Home/f:_Login.cshtml" caret="25" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Home/f:_Register.cshtml" caret="25" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Home/f:Index.cshtml" caret="25" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:App_Start/f:BundleConfig.cs" caret="1273" fromTop="18" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Filters/f:InitializeSimpleMembershipAttribute.cs" caret="1664" fromTop="10" />
   </RecentEdits>
 </RecentFiles>

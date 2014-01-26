@@ -28,6 +28,7 @@ namespace FormBuilder
 
             bundles.Add(new ScriptBundle("~/bundles/todo").Include(                
                 "~/app/todo.main.js", // must be first   
+                "~/app/models/models.js",
                 "~/app/todo.datacontext.js",
                 "~/app/todo.controller.js",
                 "~/app/about.controller.js",

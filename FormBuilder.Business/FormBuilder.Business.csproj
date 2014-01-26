@@ -41,10 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\AccountModels.cs" />
     <Compile Include="Entities\FormDefination.cs" />
-    <Compile Include="Entities\TodoItem.cs" />
-    <Compile Include="Entities\TodoList.cs" />
+    <Compile Include="Entities\Enums\QuestionType.cs" />
+    <Compile Include="Entities\FormDefinitionSet.cs" />
+    <Compile Include="Entities\Organization.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\Question.cs" />
   </ItemGroup>

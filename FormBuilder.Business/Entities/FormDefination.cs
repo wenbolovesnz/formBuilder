@@ -8,18 +8,24 @@ namespace FormBuilder.Business.Entities
 {
     public class FormDefination
     {
-        public int FormDefinationId { get; set; }
-        public string FormType { get; set; }
-        public string FormName { get; set; }
-        public string FormVersion { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public int CreatedBy { get; set; }
-
-        public virtual List<Question> UsedByQuestions { get; set; }
+        private ICollection<Question> _questions;
 
         public FormDefination()
         {
-            UsedByQuestions = new List<Question>();
+            _questions = new List<Question>();
         }
+
+        public int Id { get; set; }        
+        public string FormName { get; set; }        
+        public DateTime CreatedDate { get; set; }
+        public int CreatedBy { get; set; }
+        
+
+        public virtual ICollection<Question> Questions
+        {
+            get { return _questions; }
+            set { _questions = value; }
+        } 
+
     }
 }

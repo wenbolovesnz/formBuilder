@@ -1,11 +1,12 @@
-﻿@model ICollection<FormBuilder.Business.Entities.ExternalLogin>
+﻿@using FormBuilder.Models
+@model List<FormBuilder.Models.ExternalLogin>
 
 @if (Model.Count > 0)
 {
     <h3>Registered external logins</h3>
     <table>
         <tbody>
-        @foreach (FormBuilder.Business.Entities.ExternalLogin externalLogin in Model)
+        @foreach (ExternalLogin externalLogin in Model)
         {
             <tr>
                 <td>@externalLogin.ProviderDisplayName</td>

@@ -5,6 +5,7 @@ using System.Transactions;
 using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
+using FormBuilder.Models;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using FormBuilder.Filters;
@@ -90,16 +91,6 @@ namespace FormBuilder.Controllers
         private static void InitiateDatabaseForNewUser(string userName)
         {
             FormBuilderContext db = new FormBuilderContext();
-            TodoList todoList = new TodoList();
-            todoList.UserId = userName;
-            todoList.Title = "My Todo List #1";
-            todoList.Todos = new List<TodoItem>();
-            db.TodoLists.Add(todoList);
-            db.SaveChanges();
-
-            todoList.Todos.Add(new TodoItem() { Title = "Todo item #1", TodoListId = todoList.TodoListId, IsDone = false });
-            todoList.Todos.Add(new TodoItem() { Title = "Todo item #2", TodoListId = todoList.TodoListId, IsDone = false });
-            db.SaveChanges();
         }
 
         //
@@ -274,12 +265,12 @@ namespace FormBuilder.Controllers
                 // Insert a new user into the database
                 using (FormBuilderContext db = new FormBuilderContext())
                 {
-                    UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
+                    User user = db.Users.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
                     // Check if user already exists
                     if (user == null)
                     {
                         // Insert name into the profile table
-                        db.UserProfiles.Add(new UserProfile { UserName = model.UserName });
+                        db.Users.Add(new User { UserName = model.UserName });
                         db.SaveChanges();
 
                         InitiateDatabaseForNewUser(model.UserName);
