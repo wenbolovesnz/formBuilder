@@ -39,7 +39,14 @@ namespace FormBuilder.Data
 
         public FormBuilderContext():base(nameOrConnectionString: FormBuilderContext.ConnectionStringName)
         {
-            
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new FormDefinationSetConfiguration());
+            //base.OnModelCreating(modelBuilder);
         }
     }
 }
