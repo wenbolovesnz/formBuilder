@@ -1,7 +1,7 @@
-﻿/* main: startup script creates the 'todo' module and adds custom Ng directives */
+﻿/* main: startup script creates the 'formBuilder' module and adds custom Ng directives */
 
-// 'todo' is the one Angular (Ng) module in this app
-// 'todo' module is in global namespace
+// 'formBuilder' is the one Angular (Ng) module in this app
+// 'formBuilder' module is in global namespace
 window.todo = angular.module('todo', []);
 
 

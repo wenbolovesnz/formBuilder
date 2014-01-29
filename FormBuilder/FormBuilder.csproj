@@ -230,7 +230,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\models\models.js" />
+    <Content Include="app\models\question.base.js" />
+    <Content Include="app\models\question.date.js" />
+    <Content Include="app\models\question.money.js" />
+    <Content Include="app\models\question.string.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -255,6 +258,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="app\models\question.boolean.js" />
+    <Content Include="app\models\question.int.js" />
+    <Content Include="app\models\question.multiSelect.js" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
