@@ -2,20 +2,20 @@
 
 // 'formBuilder' is the one Angular (Ng) module in this app
 // 'formBuilder' module is in global namespace
-window.todo = angular.module('todo', []);
+window.formBuilder = angular.module('formBuilder', []);
 
 
 // Configure routes
-todo.config(['$routeProvider', function ($routeProvider) {
+formBuilder.config(['$routeProvider', function ($routeProvider) {
       $routeProvider.
-          when('/', { templateUrl: 'app/todo.view.html', controller: 'TodoCtrl' }).
-          when('/about', { templateUrl: 'app/about.view.html', controller: 'AboutCtrl' }).
+          when('/', { templateUrl: 'app/dashBoard.view.html', controller: 'DashBoardCtrl' }).
+          when('/newForm', { templateUrl: 'app/newForm.view.html', controller: 'NewFormCtrl' }).
           otherwise({ redirectTo: '/' });
   }]);
 
 //#region Ng directives
 /*  We extend Angular with custom data bindings written as Ng directives */
-todo.directive('onFocus', function () {
+formBuilder.directive('onFocus', function () {
         return {
             restrict: 'A',
             link: function (scope, elm, attrs) {
@@ -71,7 +71,7 @@ todo.directive('onFocus', function () {
 if (!Modernizr.input.placeholder) {
     // this browser does not support HTML5 placeholders
     // see http://stackoverflow.com/questions/14777841/angularjs-inputplaceholder-directive-breaking-with-ng-model
-    todo.directive('placeholder', function () {
+    formBuilder.directive('placeholder', function () {
         return {
             restrict: 'A',
             require: 'ngModel',

@@ -27,7 +27,7 @@ namespace FormBuilder
                 "~/app/ajaxlogin.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/todo").Include(                
-                "~/app/todo.main.js", // must be first   
+                "~/app/formBuilder.main.js", // must be first   
                 "~/app/models/question.base.js",
                 "~/app/models/question.boolean.js",
                 "~/app/models/question.date.js",
@@ -35,9 +35,9 @@ namespace FormBuilder
                 "~/app/models/question.money.js",
                 "~/app/models/question.multiSelect.js",
                 "~/app/models/question.string.js",
-                "~/app/todo.datacontext.js",
-                "~/app/todo.controller.js",
-                "~/app/about.controller.js",
+                "~/app/formBuilder.datacontext.js",
+                "~/app/dashBoard.controller.js",
+                "~/app/newForm.controller.js",
                 "~/app/about.logger.js"
                 ));
 
@@ -48,7 +48,7 @@ namespace FormBuilder
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 //"~/Content/Site.css",
-                //"~/Content/TodoList.css",
+                //"~/Content/formBuilderList.css",
                 "~/Content/bootstrap.css"
                 ));
 

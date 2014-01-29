@@ -288,14 +288,14 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="app\about.controller.js" />
+    <Content Include="app\newForm.controller.js" />
     <Content Include="app\about.logger.js" />
-    <Content Include="app\about.view.html" />
+    <Content Include="app\newForm.view.html" />
     <Content Include="app\ajaxlogin.js" />
-    <Content Include="app\todo.controller.js" />
-    <Content Include="app\todo.datacontext.js" />
-    <Content Include="app\todo.main.js" />
-    <Content Include="app\todo.view.html" />
+    <Content Include="app\dashBoard.controller.js" />
+    <Content Include="app\formBuilder.datacontext.js" />
+    <Content Include="app\formBuilder.main.js" />
+    <Content Include="app\dashBoard.view.html" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\TodoList.css" />

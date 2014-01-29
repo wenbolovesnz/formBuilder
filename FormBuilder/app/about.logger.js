@@ -1,7 +1,7 @@
 ﻿/* logger: logs messages of events during 
  * current user session in an in-memory log 
  */
-todo.factory('logger', function () {
+formBuilder.factory('logger', function () {
     
     var logEntries = [];
     var counter = 1;
