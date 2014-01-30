@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace FormBuilder.Business.Entities
 {
-    public class FormDefination
+    public class FormDefinition
     {
         private ICollection<Question> _questions;
 
-        public FormDefination()
+        public FormDefinition()
         {
             _questions = new List<Question>();
         }

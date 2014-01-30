@@ -15,8 +15,8 @@ namespace FormBuilder.Data
             {
                 new FormDefinitionSet {
                     Id = 1,
-                    FormDefinations = new List<FormDefination> {
-                        new FormDefination {
+                    FormDefinations = new List<FormDefinition> {
+                        new FormDefinition {
                             Id = 1,
                             Questions = new List<Question> { 
                                 new Question { 
@@ -38,7 +38,7 @@ namespace FormBuilder.Data
                             CreatedBy = 1, 
                             CreatedDate = DateTime.Now
                         },
-                        new FormDefination {
+                        new FormDefinition {
                             Id = 2,
                             Questions = new List<Question> { 
                                 new Question { 

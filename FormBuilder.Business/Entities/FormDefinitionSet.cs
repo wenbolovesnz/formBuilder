@@ -8,11 +8,11 @@ namespace FormBuilder.Business.Entities
 {
     public class FormDefinitionSet
     {
-        private ICollection<FormDefination> _formDefinition;
+        private ICollection<FormDefinition> _formDefinition;
 
         public FormDefinitionSet()
         {
-            _formDefinition = new List<FormDefination>();
+            _formDefinition = new List<FormDefinition>();
         }
 
         public int Id { get; set; }
@@ -20,7 +20,7 @@ namespace FormBuilder.Business.Entities
         public Organization Organization { get; set; }
 
 
-        public virtual ICollection<FormDefination> FormDefinations
+        public virtual ICollection<FormDefinition> FormDefinations
         {
             get { return _formDefinition; }
             set { _formDefinition = value; }

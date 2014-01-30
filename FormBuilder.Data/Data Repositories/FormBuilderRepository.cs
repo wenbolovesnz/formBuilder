@@ -7,12 +7,13 @@ using System.Web;
 
 namespace FormBuilder.Data
 {
+    //TODO THIS IS NOT REQUIRED SINCE WE HAVE GOT UNIT OF WORK PATTERN
     // Move interface to Data Contracts folder
     public interface IFormBuilderRepository
     {
-        IQueryable<FormDefinitionSet> GetAllFormDefinitions();
+        IQueryable<FormDefinitionSet> GetAllFormDefinitionets();
 
-        FormDefination GetFormDefination(int formDefinationId);
+        FormDefinition GetFormDefination(int formDefinationId);
 
         bool Save();
 
@@ -34,12 +35,12 @@ namespace FormBuilder.Data
             _ctx = ctx;
         }
 
-        public IQueryable<FormDefinitionSet> GetAllFormDefinitions()
+        public IQueryable<FormDefinitionSet> GetAllFormDefinitionets()
         {
             return _ctx.FormDefinitionSets;
         }
 
-        public FormDefination GetFormDefination(int formDefinationId)
+        public FormDefinition GetFormDefination(int formDefinationId)
         {
             throw new NotImplementedException();
         }

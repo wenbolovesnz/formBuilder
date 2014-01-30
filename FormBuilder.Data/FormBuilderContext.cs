@@ -13,7 +13,7 @@ namespace FormBuilder.Data
     public class FormBuilderContext : DbContext
     {
         public DbSet<Question> Questions { get; set; }
-        public DbSet<FormDefination> FormDefinations { get; set; }
+        public DbSet<FormDefinition> FormDefinations { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<FormDefinitionSet> FormDefinitionSets { get; set; }
         public DbSet<Organization> Organizations { get; set; }       

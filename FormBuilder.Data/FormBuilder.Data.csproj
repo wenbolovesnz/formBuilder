@@ -48,7 +48,15 @@
   <ItemGroup>
     <Compile Include="Configuration\DataBaseInitializer.cs" />
     <Compile Include="Configuration\FormDefinationSetConfiguration.cs" />
+    <Compile Include="Data Repositories\ApplicationUnit.cs" />
     <Compile Include="Data Repositories\FormBuilderRepository.cs" />
+    <Compile Include="Data Repositories\FormDefinitionSetsRepository.cs" />
+    <Compile Include="Data Repositories\FormDefinitionsRepository.cs" />
+    <Compile Include="Data Repositories\GenericRepository.cs" />
+    <Compile Include="Data Repositories\IRepository.cs" />
+    <Compile Include="Data Repositories\OrganizationsRepository.cs" />
+    <Compile Include="Data Repositories\QuestionsRepository.cs" />
+    <Compile Include="Data Repositories\UsersRepository.cs" />
     <Compile Include="FormBuilderContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sample Data\SampleDataBuilder.cs" />

@@ -22,7 +22,7 @@ namespace FormBuilder.Controllers.Api
         {
             IQueryable<FormDefinitionSet> results;
 
-            results = _repo.GetAllFormDefinitions();
+            results = _repo.GetAllFormDefinitionets();
 
             var formDefinitionSets = results.OrderByDescending(fd => fd.OrgnizationId);
 

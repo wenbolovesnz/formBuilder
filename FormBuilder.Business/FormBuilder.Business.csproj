@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\FormDefination.cs" />
+    <Compile Include="Entities\FormDefinition.cs" />
     <Compile Include="Entities\Enums\QuestionType.cs" />
     <Compile Include="Entities\FormDefinitionSet.cs" />
     <Compile Include="Entities\Organization.cs" />
