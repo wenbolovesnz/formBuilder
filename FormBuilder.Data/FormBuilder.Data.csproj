@@ -47,9 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\DataBaseInitializer.cs" />
-    <Compile Include="Configuration\FormDefinationSetConfiguration.cs" />
     <Compile Include="Data Repositories\ApplicationUnit.cs" />
-    <Compile Include="Data Repositories\FormBuilderRepository.cs" />
     <Compile Include="Data Repositories\FormDefinitionSetsRepository.cs" />
     <Compile Include="Data Repositories\FormDefinitionsRepository.cs" />
     <Compile Include="Data Repositories\GenericRepository.cs" />
@@ -62,7 +60,9 @@
     <Compile Include="Sample Data\SampleDataBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

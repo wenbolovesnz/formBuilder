@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Threading;
@@ -38,12 +39,25 @@ namespace FormBuilder.Filters
                         }
                     }
 
-                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "Users", "Id", "UserName", autoCreateTables: true);
+                    WebSecurity.InitializeDatabaseConnection(ConnectionStringName, "Users", "Id", "UserName", autoCreateTables: true);
                 }
                 catch (Exception ex)
                 {
                     throw new InvalidOperationException("The ASP.NET Simple Membership database could not be initialized. For more information, please see http://go.microsoft.com/fwlink/?LinkId=256588", ex);
                 }
+            }
+        }
+
+        public static string ConnectionStringName
+        {
+            get
+            {
+                if (ConfigurationManager.AppSettings["ConnectionStringName"] != null)
+                {
+                    return ConfigurationManager.AppSettings["ConnectionStringName"];
+                }
+
+                return "FormBuilderDev";
             }
         }
     }

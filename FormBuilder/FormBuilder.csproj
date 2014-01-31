@@ -218,6 +218,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\FormDefinitionSetsController.cs" />
     <Compile Include="Controllers\Api\FormsController.cs" />
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -227,6 +228,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\FormDefinitionModel.cs" />
+    <Compile Include="Models\FormDefinitionSetModel.cs" />
+    <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Models\OrganizationModel.cs" />
+    <Compile Include="Models\QuestionModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

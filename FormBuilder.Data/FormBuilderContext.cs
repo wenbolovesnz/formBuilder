@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FormBuilder.Business.Entities;
+using FormBuilder.Business.EntityConfigurations;
 using FormBuilder.Data.Configuration;
 
 namespace FormBuilder.Data
@@ -39,14 +40,16 @@ namespace FormBuilder.Data
 
         public FormBuilderContext():base(nameOrConnectionString: FormBuilderContext.ConnectionStringName)
         {
-            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.LazyLoadingEnabled = true;
             this.Configuration.ProxyCreationEnabled = false;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new FormDefinationSetConfiguration());
-            //base.OnModelCreating(modelBuilder);
+            modelBuilder.Configurations.Add(new MembershipConfig());
+            modelBuilder.Configurations.Add(new OAuthMemebershipConfig());
+            modelBuilder.Configurations.Add(new RoleConfig());
+            modelBuilder.Configurations.Add(new UserConfig());            
         }
     }
 }

@@ -1,3 +1,5 @@
+using FormBuilder.Data.Data_Repositories;
+
 [assembly: WebActivator.PreApplicationStartMethod(typeof(FormBuilder.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(FormBuilder.App_Start.NinjectWebCommon), "Stop")]
 
@@ -61,7 +63,7 @@ namespace FormBuilder.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<FormBuilderContext>().To<FormBuilderContext>().InRequestScope();
-            kernel.Bind<IFormBuilderRepository>().To<FormBuilderRepository>().InRequestScope();
+            kernel.Bind<ApplicationUnit>().To<ApplicationUnit>().InRequestScope();
         }        
     }
 }

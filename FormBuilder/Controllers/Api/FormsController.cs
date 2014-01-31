@@ -6,37 +6,38 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using FormBuilder.Data.Data_Repositories;
 
 namespace FormBuilder.Controllers.Api
 {
     public class FormsController : ApiController
     {
-        private IFormBuilderRepository _repo;
+        private ApplicationUnit _applicationUnit;
 
-        public FormsController(IFormBuilderRepository repo)
+        public FormsController(ApplicationUnit applicationUnit)
         {
-            _repo = repo;
+            _applicationUnit = applicationUnit;
         }
 
         public IEnumerable<FormDefinitionSet> Get()
         {
-            IQueryable<FormDefinitionSet> results;
 
-            results = _repo.GetAllFormDefinitionets();
 
-            var formDefinitionSets = results.OrderByDescending(fd => fd.OrgnizationId);
+            var results = _applicationUnit.FormDefinitionSets.GetAll();
+
+            var formDefinitionSets = results.OrderByDescending(fd => fd.OrganizationId);
 
             return formDefinitionSets;
         }
 
-        public HttpResponseMessage Post([FromBody] FormDefinitionSet newFormDefination)
-        {
-            if (_repo.AddFormDefinitionSet(newFormDefination) && _repo.Save())
-            {
-                return Request.CreateResponse(HttpStatusCode.Created, newFormDefination);
-            }
+        //public HttpResponseMessage Post([FromBody] FormDefinitionSet newFormDefination)
+        //{
+        //    if (_applicationUnit.FormDefinitionSets.a(newFormDefination) && _repo.Save())
+        //    {
+        //        return Request.CreateResponse(HttpStatusCode.Created, newFormDefination);
+        //    }
 
-            return Request.CreateResponse(HttpStatusCode.BadRequest);
-        }
+        //    return Request.CreateResponse(HttpStatusCode.BadRequest);
+        //}
     }
 }

@@ -4,30 +4,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using FormBuilder.Data.Data_Repositories;
 
 namespace FormBuilder.Controllers
 {
     public class HomeController : Controller
     {
-        IFormBuilderRepository _repo;
+        private ApplicationUnit _applicationUnit;
 
-        public HomeController(IFormBuilderRepository repo)
+        public HomeController(ApplicationUnit applicationUnit)
         {
-            _repo = repo;
+            _applicationUnit = applicationUnit;
         }
 
         public ActionResult Index(string returnUrl)
-        {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            var fd = _repo.GetAllFormDefinitionets()
-                          .OrderByDescending(t => t.OrgnizationId)
-                          .Take(25)
-                          .ToList();
-
-            ViewBag.ReturnUrl = returnUrl;
-            ViewBag.FormDefinitions = fd;
-            
+        {                       
             return View();
 
             
