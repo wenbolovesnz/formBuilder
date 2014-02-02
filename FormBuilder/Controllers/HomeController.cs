@@ -5,23 +5,26 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FormBuilder.Data.Data_Repositories;
+using FormBuilder.Data.Contracts;
+using FormBuilder.Models;
 
 namespace FormBuilder.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationUnit _applicationUnit;
+        private IApplicationUnit _applicationUnit;
+        private ModelFactory _modelFactory;
 
-        public HomeController(ApplicationUnit applicationUnit)
+        public HomeController(IApplicationUnit applicationUnit)
         {
             _applicationUnit = applicationUnit;
+            _modelFactory = new ModelFactory();
+
         }
 
         public ActionResult Index(string returnUrl)
-        {                       
+        {
             return View();
-
-            
         }
 
         public ActionResult About()
@@ -29,6 +32,16 @@ namespace FormBuilder.Controllers
             ViewBag.Message = "Your app description page.";
 
             return View();
+        }
+
+        public ActionResult FormDefinationSets()
+        {
+            var data = _applicationUnit.FormDefinitionSetRepository.Get(
+                            includeProperties: "Organization,FormDefinitions",
+                            orderBy: fd => fd.OrderBy(k => k.OrganizationId))
+                        .Select(f => _modelFactory.Create(f)).ToList();
+
+            return View(data);
         }
 
         public ActionResult Contact()

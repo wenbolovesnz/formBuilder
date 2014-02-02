@@ -35,13 +35,16 @@ namespace FormBuilder.Data
 
         static FormBuilderContext()
         {
-            Database.SetInitializer(new DataBaseInitializer());
+            
         }
 
         public FormBuilderContext():base(nameOrConnectionString: FormBuilderContext.ConnectionStringName)
         {
-            this.Configuration.LazyLoadingEnabled = true;
+            this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.ProxyCreationEnabled = false;
+
+            Database.SetInitializer(
+                new MigrateDatabaseToLatestVersion<FormBuilderContext, FormBuilderMigrationsConfiguration>());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

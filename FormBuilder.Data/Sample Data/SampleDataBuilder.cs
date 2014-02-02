@@ -15,7 +15,7 @@ namespace FormBuilder.Data
             {
                 new FormDefinitionSet {
                     Id = 1,
-                    FormDefinations = new List<FormDefinition> {
+                    FormDefinitions = new List<FormDefinition> {
                         new FormDefinition {
                             Id = 1,
                             Questions = new List<Question> { 
@@ -60,6 +60,10 @@ namespace FormBuilder.Data
                             CreatedBy = 1, 
                             CreatedDate = DateTime.Now
                         }
+                    }, 
+                    Organization = new Organization { 
+                        Id = 1,
+                        OrganizationName = "Org 1"
                     }
                 }
             };

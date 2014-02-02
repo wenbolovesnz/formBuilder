@@ -19,7 +19,7 @@ namespace FormBuilder.Business.Entities
         public string FormName { get; set; }        
         public DateTime CreatedDate { get; set; }
         public int CreatedBy { get; set; }
-        
+        public virtual User User { get; set; }
 
         public virtual ICollection<Question> Questions
         {

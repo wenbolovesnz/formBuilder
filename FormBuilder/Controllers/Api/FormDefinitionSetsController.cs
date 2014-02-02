@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using FormBuilder.Business.Entities;
-using FormBuilder.Data.Data_Repositories;
 using FormBuilder.Models;
+using FormBuilder.Data.Contracts;
+using System.Linq;
 
 namespace FormBuilder.Controllers.Api
 {
     public class FormDefinitionSetsController : ApiController
     {
-        private ApplicationUnit _applicationUnit;
+        private IApplicationUnit _applicationUnit;
         private ModelFactory _modelFactory;
 
-        public FormDefinitionSetsController(ApplicationUnit applicationUnit)
+        public FormDefinitionSetsController(IApplicationUnit applicationUnit)
         {
             _applicationUnit = applicationUnit;
             _modelFactory = new ModelFactory();
@@ -25,19 +22,17 @@ namespace FormBuilder.Controllers.Api
         // GET
         public IEnumerable<Object> Get()
         {
-            var formDefinitionSets = _applicationUnit.FormDefinitionSets
-                                                     .GetAll()
-                                                     .Include(m => m.Organization)
-                                                     .Include(m => m.FormDefinations)
-                                                     .OrderByDescending(fd => fd.OrganizationId).ToList()
-                                                     .Select(f => _modelFactory.Create(f));
-            return formDefinitionSets;
+            // We can pass includeProperties: "Organization,FormDefinitions" to Get method to load related entities.
+            return _applicationUnit.FormDefinitionSetRepository.Get(
+                            includeProperties: "Organization,FormDefinitions",
+                            orderBy: fd => fd.OrderBy(k => k.OrganizationId))
+                        .Select(f => _modelFactory.Create(f));
         }
 
         // GET api/formdefinitionsets/5
         public FormDefinitionSet Get(int id)
         {
-            return _applicationUnit.FormDefinitionSets.GetById(id);
+            return _applicationUnit.FormDefinitionSetRepository.GetByID(id);
         }
 
         // POST api/formdefinitionsets

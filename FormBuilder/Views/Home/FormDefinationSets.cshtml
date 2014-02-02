@@ -1,0 +1,31 @@
+﻿@model List<FormBuilder.Models.FormDefinitionSetModel>
+
+@{
+    ViewBag.Title = "FormDefinationSets";
+}
+
+<h2>FormDefinationSets</h2>
+
+@foreach (var fds in Model)
+{ 
+    <div class="message row">
+        <div class="title span10">
+            <strong>Form Definition Set ID </strong> @fds.Id
+        </div>
+        <div class="date span2">
+            <ul>
+                @foreach (var fd in fds.FromDefinitionModels)
+                {
+                    <li>@fd.Id - @fd.Name <br /> @fd.CreatedDate </li>
+                }
+            </ul>
+
+        </div>
+        <div class="contents span12">
+            <strong>Organization: </strong> @fds.OrganizationModel.OrganizationName
+        </div>
+        <div class="toolbar span12">
+            <button class="btn btn-primary reply-button">Reply</button>
+        </div>
+    </div> 
+}

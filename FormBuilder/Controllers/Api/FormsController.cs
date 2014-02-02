@@ -7,27 +7,25 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using FormBuilder.Data.Data_Repositories;
+using FormBuilder.Models;
 
 namespace FormBuilder.Controllers.Api
 {
     public class FormsController : ApiController
     {
         private ApplicationUnit _applicationUnit;
+        private ModelFactory _modelFactory;
 
         public FormsController(ApplicationUnit applicationUnit)
         {
             _applicationUnit = applicationUnit;
+            _modelFactory = new ModelFactory();
         }
 
-        public IEnumerable<FormDefinitionSet> Get()
+        public IEnumerable<Object> Get()
         {
-
-
-            var results = _applicationUnit.FormDefinitionSets.GetAll();
-
-            var formDefinitionSets = results.OrderByDescending(fd => fd.OrganizationId);
-
-            return formDefinitionSets;
+            return _applicationUnit.QuestionRepository.Get(orderBy: q => q.OrderBy(k => k.QuestionType))
+                                    .Select(f => _modelFactory.Create(f));
         }
 
         //public HttpResponseMessage Post([FromBody] FormDefinitionSet newFormDefination)

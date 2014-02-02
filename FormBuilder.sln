@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resource Access", "Resource
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormBuilder.Data", "FormBuilder.Data\FormBuilder.Data.csproj", "{9D93005C-EF34-41DE-A781-C7BD0D21CEC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormBuilder.Data.Contracts", "FormBuilder.Data.Contracts\FormBuilder.Data.Contracts.csproj", "{837407AC-4FEB-44F5-B0D3-DD7944C45C2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{9D93005C-EF34-41DE-A781-C7BD0D21CEC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D93005C-EF34-41DE-A781-C7BD0D21CEC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D93005C-EF34-41DE-A781-C7BD0D21CEC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{837407AC-4FEB-44F5-B0D3-DD7944C45C2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{837407AC-4FEB-44F5-B0D3-DD7944C45C2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{837407AC-4FEB-44F5-B0D3-DD7944C45C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{837407AC-4FEB-44F5-B0D3-DD7944C45C2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,5 +42,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C} = {909DA1AD-5857-4A4C-A560-C23EDA4042C4}
 		{9D93005C-EF34-41DE-A781-C7BD0D21CEC3} = {58E8E4EE-C5DA-423B-8AB3-0B53C6B31FD7}
+		{837407AC-4FEB-44F5-B0D3-DD7944C45C2C} = {58E8E4EE-C5DA-423B-8AB3-0B53C6B31FD7}
 	EndGlobalSection
 EndGlobal

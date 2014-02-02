@@ -18,10 +18,10 @@ namespace FormBuilder.Business.Entities
         public int Id { get; set; }
 
         public int OrganizationId { get; set; }
-        public Organization Organization { get; set; }
+        public virtual Organization Organization { get; set; }
 
 
-        public virtual ICollection<FormDefinition> FormDefinations
+        public virtual ICollection<FormDefinition> FormDefinitions
         {
             get { return _formDefinition; }
             set { _formDefinition = value; }

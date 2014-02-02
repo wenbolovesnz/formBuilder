@@ -15,6 +15,8 @@ namespace FormBuilder.App_Start
     using FormBuilder.Data;
     using System.Web.Http;
     using WebApiContrib.IoC.Ninject;
+    using FormBuilder.Data.Contracts;
+    using FormBuilder.Business.Entities;
 
     public static class NinjectWebCommon 
     {
@@ -63,7 +65,12 @@ namespace FormBuilder.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<FormBuilderContext>().To<FormBuilderContext>().InRequestScope();
-            kernel.Bind<ApplicationUnit>().To<ApplicationUnit>().InRequestScope();
+            kernel.Bind<IApplicationUnit>().To<ApplicationUnit>().InRequestScope();
+            kernel.Bind<IGenericRepository<User>>().To<GenericRepository<User>>().InRequestScope();
+            kernel.Bind<IGenericRepository<FormDefinitionSet>>().To<GenericRepository<FormDefinitionSet>>().InRequestScope();
+            kernel.Bind<IGenericRepository<FormDefinition>>().To<GenericRepository<FormDefinition>>().InRequestScope();
+            kernel.Bind<IGenericRepository<Question>>().To<GenericRepository<Question>>().InRequestScope();
+            kernel.Bind<IGenericRepository<Organization>>().To<GenericRepository<Organization>>().InRequestScope();
         }        
     }
 }

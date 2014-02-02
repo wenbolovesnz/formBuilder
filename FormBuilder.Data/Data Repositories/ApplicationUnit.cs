@@ -1,61 +1,88 @@
 ﻿using System;
 using FormBuilder.Business.Entities;
+using FormBuilder.Data.Contracts;
 
-
-namespace FormBuilder.Data.Data_Repositories
+namespace FormBuilder.Data
 {
-    public class ApplicationUnit: IDisposable
+    public class ApplicationUnit: IApplicationUnit
     {
-        private FormBuilderContext _context = new FormBuilderContext();
+        private FormBuilderContext _context;
 
-        private IRepository<User> _users = null;
-        private IRepository<Question> _questions = null;
-        private IRepository<Organization> _organizations = null;
-        private IRepository<FormDefinitionSet> _formDefinitionSets = null;
-        private IRepository<FormDefinition> _formDefinitions = null;
+        private IGenericRepository<User> _userRepository;
+        private IGenericRepository<Question> _questionRepository;
+        private IGenericRepository<Organization> _organizationRepository;
+        private IGenericRepository<FormDefinitionSet> _formDefinitionSetRepository;
+        private IGenericRepository<FormDefinition> _formDefinitionRepository;
 
-        public IRepository<User> Users
+        public ApplicationUnit(IGenericRepository<User> userRepository, 
+                               IGenericRepository<Question> questionRepository,
+                               IGenericRepository<Organization> organizationRepository,
+                               IGenericRepository<FormDefinitionSet> formDefinitionSetRepository, 
+                               IGenericRepository<FormDefinition> formDefinitionRepository,
+                               FormBuilderContext formBuilderContext)
         {
-            get { return this._users ?? (this._users = new GenericRepository<User>(this._context)); }
+            _userRepository = userRepository;
+            _questionRepository = questionRepository;
+            _organizationRepository = organizationRepository;
+            _formDefinitionSetRepository = formDefinitionSetRepository;
+            _formDefinitionRepository = formDefinitionRepository;
+            _context = formBuilderContext;
         }
 
-        public IRepository<Question> Questions
+        public IGenericRepository<User> UserRepository
         {
-            get { return this._questions ?? (this._questions = new GenericRepository<Question>(this._context)); }
+            get { return this._userRepository; }
         }
 
-        public IRepository<Organization> Organizations
+        public IGenericRepository<Question> QuestionRepository
         {
-            get { return this._organizations ?? (this._organizations = new GenericRepository<Organization>(this._context)); }
+            get { return this._questionRepository; }
         }
 
-        public IRepository<FormDefinitionSet> FormDefinitionSets
+        public IGenericRepository<Organization> OrganizationRepository
         {
-            get {
-                return this._formDefinitionSets ??
-                       (this._formDefinitionSets = new GenericRepository<FormDefinitionSet>(this._context));
+            get { return this._organizationRepository; }
+        }
+
+        public IGenericRepository<FormDefinitionSet> FormDefinitionSetRepository
+        {
+            get
+            {
+                return this._formDefinitionSetRepository;
             }
         }
 
-        public IRepository<FormDefinition> FormDefinitions
+        public IGenericRepository<FormDefinition> FormDefinationRepository
         {
-            get {
-                return this._formDefinitions ??
-                       (this._formDefinitions = new GenericRepository<FormDefinition>(this._context));
+            get
+            {
+                return this._formDefinitionRepository;
             }
         }
 
         public void SaveChanges()
         {
-            this._context.SaveChanges();
+            _context.SaveChanges();
+        }
+
+        private bool disposed = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    _context.Dispose();
+                }
+            }
+            this.disposed = true;
         }
 
         public void Dispose()
         {
-            if(this._context != null)
-            {
-                this._context.Dispose();
-            }
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }
