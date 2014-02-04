@@ -2,8 +2,9 @@
 
 // 'formBuilder' is the one Angular (Ng) module in this app
 // 'formBuilder' module is in global namespace
-window.formBuilder = angular.module('formBuilder', []);
+window.formBuilder = angular.module('formBuilder', ['ngRoute', 'ngResource']);
 
+formBuilder.value('Q', window.Q);
 
 // Configure routes
 formBuilder.config(['$routeProvider', function ($routeProvider) {

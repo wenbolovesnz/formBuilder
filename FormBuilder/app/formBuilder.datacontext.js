@@ -4,13 +4,22 @@
 // constructor function relies on Ng injector
 // to provide service dependencies
 formBuilder.factory('datacontext',
-    [
-    function () {
+    ['Q', '$resource',
+    function (Q, $resource) {
+        var formDefinitionSet;
+        
+        function formDefinitionSets(force) {
+            if (force) {
+                return $resource('api/FormDefinitionSets', {}, {
+                    query: { method: 'GET', isArray: true }
+                });
+            } else {
+                return formDefinitionSet;
+            }           
+        }
 
-        function getData() {
-            return {
-
-            };
+        function cacheFormDefinitionSet(data) {
+            formDefinitionSet = data;
         }
 
         function saveEntity(parameters) {
@@ -18,7 +27,8 @@ formBuilder.factory('datacontext',
         }
 
         return {
-            getData: getData,
+            cacheFormDefinitionSet:cacheFormDefinitionSet,
+            formDefinitionSets: formDefinitionSets,
             saveEntity: saveEntity
         };
 
