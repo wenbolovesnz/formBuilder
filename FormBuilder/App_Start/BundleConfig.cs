@@ -51,7 +51,8 @@ namespace FormBuilder
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 //"~/Content/Site.css",
                 //"~/Content/formBuilderList.css",
-                "~/Content/bootstrap.css"
+                "~/Content/bootstrap.css",
+                "~/Content/font-awesome.css"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(

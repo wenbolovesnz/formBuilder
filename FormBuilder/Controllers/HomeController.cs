@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using FormBuilder.Data.Data_Repositories;
 using FormBuilder.Data.Contracts;
 using FormBuilder.Models;
+using WebMatrix.WebData;
 
 namespace FormBuilder.Controllers
 {
@@ -24,7 +25,9 @@ namespace FormBuilder.Controllers
 
         public ActionResult Index(string returnUrl)
         {
-            return View();
+            LoginModel model = new LoginModel();
+            model.UserName = WebSecurity.CurrentUserName;
+            return View(model);
         }
 
         public ActionResult About()
