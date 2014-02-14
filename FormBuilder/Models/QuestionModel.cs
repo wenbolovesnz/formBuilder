@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FormBuilder.Business.Entities;
+using FormBuilder.Business.Entities.Enums;
 
 namespace FormBuilder.Models
 {

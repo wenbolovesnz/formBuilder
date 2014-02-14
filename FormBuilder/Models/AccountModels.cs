@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
+using FormBuilder.Business.Entities.Enums;
 
 namespace FormBuilder.Models
 {    
@@ -51,6 +52,14 @@ namespace FormBuilder.Models
 
     public class RegisterModel
     {
+        public RegisterModel()
+        {
+            UserTypes = new List<UserTypeModel>
+            {
+                new UserTypeModel{UserTypeId = (int)UserType.SingleUser, UserTypeName = UserType.SingleUser.ToString()},
+                new UserTypeModel{UserTypeId = (int)UserType.MultipleUsers, UserTypeName = UserType.MultipleUsers.ToString()}
+            };
+        }
         [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }
@@ -65,6 +74,21 @@ namespace FormBuilder.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Account Type")]
+        public int UserTypeId { get; set; }
+
+
+        public IList<UserTypeModel> UserTypes { get; set; }
+
+
+    }
+
+    public class UserTypeModel
+    {
+        public int UserTypeId { get; set; }
+        public string UserTypeName { get; set; }
     }
 
     public class ExternalLogin

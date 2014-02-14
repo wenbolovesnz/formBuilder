@@ -14,5 +14,6 @@ namespace FormBuilder.Data.Contracts
         IGenericRepository<Organization> OrganizationRepository { get; }
         IGenericRepository<FormDefinitionSet> FormDefinitionSetRepository { get; }
         IGenericRepository<FormDefinition> FormDefinationRepository { get; }
+        void SaveChanges();
     }
 }

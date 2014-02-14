@@ -1,4 +1,5 @@
-﻿using FormBuilder.Data;
+﻿using FormBuilder.Business.Entities.Enums;
+using FormBuilder.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,9 +26,17 @@ namespace FormBuilder.Controllers
 
         public ActionResult Index(string returnUrl)
         {
-            LoginModel model = new LoginModel();
-            model.UserName = WebSecurity.CurrentUserName;
-            return View(model);
+            ViewBag.UserName = WebSecurity.CurrentUserName;
+            ViewBag.UserTypes = new List<UserTypeModel>
+            {
+                new UserTypeModel{UserTypeId = (int)UserType.SingleUser, UserTypeName = "Single User"},
+                new UserTypeModel{UserTypeId = (int)UserType.MultipleUsers, UserTypeName = "Multipe Users"}
+            };
+
+
+
+
+            return View();
         }
 
         public ActionResult About()

@@ -5,7 +5,10 @@ using System.Transactions;
 using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
+using FormBuilder.Business.Entities.Enums;
+using FormBuilder.Data.Contracts;
 using FormBuilder.Models;
+using Microsoft.Ajax.Utilities;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using FormBuilder.Filters;
@@ -18,6 +21,15 @@ namespace FormBuilder.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
+        private IApplicationUnit _applicationUnit;
+
+        public AccountController(IApplicationUnit applicationUnit)
+        {
+            _applicationUnit = applicationUnit;
+            
+
+        }
+
         //
         // POST: /Account/JsonLogin
 
@@ -71,6 +83,11 @@ namespace FormBuilder.Controllers
 
                     InitiateDatabaseForNewUser(model.UserName);
 
+                    User user = _applicationUnit.UserRepository.Get(m => m.UserName == model.UserName).First();
+                    user.UserType = (UserType)model.UserTypeId;
+                    _applicationUnit.UserRepository.Update(user);
+                    _applicationUnit.SaveChanges();
+                    
                     FormsAuthentication.SetAuthCookie(model.UserName, createPersistentCookie: false);
                     return Json(new { success = true, redirect = returnUrl });
                 }

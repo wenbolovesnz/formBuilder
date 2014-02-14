@@ -1,4 +1,5 @@
-﻿@model FormBuilder.Models.RegisterModel
+﻿@using Ninject.Infrastructure.Language
+@model FormBuilder.Models.RegisterModel
 
 @using (Html.BeginForm("JsonRegister", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { Id = "registerForm" }))
 {
@@ -18,6 +19,10 @@
             <li>
                 @Html.LabelFor(m => m.ConfirmPassword)
                 @Html.PasswordFor(m => m.ConfirmPassword)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.UserTypeId)
+                @Html.DropDownListFor(m => m.UserTypeId, new SelectList(ViewBag.UserTypes, "UserTypeId", "UserTypeName"), "Please select...")
             </li>
             <li>
                 <input type="submit" value="Sign up" />
