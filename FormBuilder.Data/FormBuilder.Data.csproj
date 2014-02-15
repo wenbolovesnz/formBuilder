@@ -53,6 +53,7 @@
     <Compile Include="Data Repositories\GenericRepository.cs" />
     <Compile Include="Data Repositories\OrganizationsRepository.cs" />
     <Compile Include="Data Repositories\QuestionsRepository.cs" />
+    <Compile Include="Data Repositories\RolesRepository.cs" />
     <Compile Include="Data Repositories\UsersRepository.cs" />
     <Compile Include="FormBuilderContext.cs" />
     <Compile Include="FormBuilderMigrationsConfiguration.cs" />

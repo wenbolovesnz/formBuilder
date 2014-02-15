@@ -206,6 +206,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\FormDefinitionSetsController.cs" />
     <Compile Include="Controllers\Api\FormsController.cs" />
+    <Compile Include="Controllers\Api\UsersController.cs" />
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -214,6 +215,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\CreateUserViewModel.cs" />
     <Compile Include="Models\FormDefinitionModel.cs" />
     <Compile Include="Models\FormDefinitionSetModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />

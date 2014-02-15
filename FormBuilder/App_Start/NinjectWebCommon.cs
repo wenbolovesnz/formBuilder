@@ -67,6 +67,7 @@ namespace FormBuilder.App_Start
             kernel.Bind<FormBuilderContext>().To<FormBuilderContext>().InRequestScope();
             kernel.Bind<IApplicationUnit>().To<ApplicationUnit>().InRequestScope();
             kernel.Bind<IGenericRepository<User>>().To<GenericRepository<User>>().InRequestScope();
+            kernel.Bind<IGenericRepository<Role>>().To<GenericRepository<Role>>().InRequestScope();
             kernel.Bind<IGenericRepository<FormDefinitionSet>>().To<GenericRepository<FormDefinitionSet>>().InRequestScope();
             kernel.Bind<IGenericRepository<FormDefinition>>().To<GenericRepository<FormDefinition>>().InRequestScope();
             kernel.Bind<IGenericRepository<Question>>().To<GenericRepository<Question>>().InRequestScope();

@@ -81,12 +81,7 @@ namespace FormBuilder.Controllers
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
 
-                    InitiateDatabaseForNewUser(model.UserName);
-
-                    User user = _applicationUnit.UserRepository.Get(m => m.UserName == model.UserName).First();
-                    user.UserType = (UserType)model.UserTypeId;
-                    _applicationUnit.UserRepository.Update(user);
-                    _applicationUnit.SaveChanges();
+                    InitiateDatabaseForNewUser(model.UserName, model.UserTypeId);
                     
                     FormsAuthentication.SetAuthCookie(model.UserName, createPersistentCookie: false);
                     return Json(new { success = true, redirect = returnUrl });
@@ -105,9 +100,16 @@ namespace FormBuilder.Controllers
         /// Initiate a new todo list for new user
         /// </summary>
         /// <param name="userName"></param>
-        private static void InitiateDatabaseForNewUser(string userName)
+        /// <param name="userTypeId"></param>
+        private void InitiateDatabaseForNewUser(string userName, int userTypeId)
         {
-            FormBuilderContext db = new FormBuilderContext();
+            User user = _applicationUnit.UserRepository.Get(m => m.UserName == userName).First();
+            user.UserType = (UserType)userTypeId;
+            user.Organization = new Organization();
+            Role adminRole = _applicationUnit.RoleRepository.Get(m => m.RoleName == "Admin").FirstOrDefault(); // Todo, RoleName needs to be an Enum.
+            user.Roles.Add(adminRole);
+            _applicationUnit.UserRepository.Update(user);
+            _applicationUnit.SaveChanges();
         }
 
         //
@@ -290,7 +292,7 @@ namespace FormBuilder.Controllers
                         db.Users.Add(new User { UserName = model.UserName });
                         db.SaveChanges();
 
-                        InitiateDatabaseForNewUser(model.UserName);
+                        //InitiateDatabaseForNewUser(); Todo need to implement this. Wenbo
 
                         OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);
                         OAuthWebSecurity.Login(provider, providerUserId, createPersistentCookie: false);

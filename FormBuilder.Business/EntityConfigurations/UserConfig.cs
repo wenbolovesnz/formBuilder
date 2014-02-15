@@ -14,6 +14,7 @@ namespace FormBuilder.Business.EntityConfigurations
         {
             this.HasKey(m => m.Id);
             this.Property(p => p.UserName).IsRequired().HasMaxLength(300);
+            this.Property(p => p.ForceChangePassword).IsRequired();
 
             this.HasOptional(m => m.Organization);
             this.Property(p => p.OrganizationId).IsOptional();

@@ -19,7 +19,7 @@ namespace FormBuilder.Business.Entities
 
         public int Id { get; set; }
         public string UserName { get; set; }
-
+        public bool ForceChangePassword { get; set; }
         public UserType UserType { get; set; }
 
         public int? OrganizationId { get; set; }

@@ -10,6 +10,7 @@ namespace FormBuilder.Data.Contracts
     public interface IApplicationUnit : IDisposable
     {
         IGenericRepository<User> UserRepository { get; }
+        IGenericRepository<Role> RoleRepository { get; }
         IGenericRepository<Question> QuestionRepository { get; }
         IGenericRepository<Organization> OrganizationRepository { get; }
         IGenericRepository<FormDefinitionSet> FormDefinitionSetRepository { get; }
