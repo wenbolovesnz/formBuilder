@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using FormBuilder.Business.Entities;
+using FormBuilder.Business.Entities.Enums;
 using FormBuilder.Data.Contracts;
 using FormBuilder.Models;
 using WebMatrix.WebData;
@@ -35,7 +36,7 @@ namespace FormBuilder.Controllers.Api
             {
                 currentUser = _applicationUnit.UserRepository.GetByID(WebSecurity.CurrentUserId);
 
-                if (currentUser.Roles.SingleOrDefault(m => m.RoleName == "Admin") != null)
+                if (currentUser.Roles.SingleOrDefault(m => m.RoleId == (int)RoleTypes.Admin) != null)
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     User newUser = _applicationUnit.UserRepository.Get(m => m.UserName == model.UserName).First();

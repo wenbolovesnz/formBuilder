@@ -106,7 +106,7 @@ namespace FormBuilder.Controllers
             User user = _applicationUnit.UserRepository.Get(m => m.UserName == userName).First();
             user.UserType = (UserType)userTypeId;
             user.Organization = new Organization();
-            Role adminRole = _applicationUnit.RoleRepository.Get(m => m.RoleName == "Admin").FirstOrDefault(); // Todo, RoleName needs to be an Enum.
+            Role adminRole = _applicationUnit.RoleRepository.Get(m => m.RoleId == (int)RoleTypes.Admin).FirstOrDefault(); 
             user.Roles.Add(adminRole);
             _applicationUnit.UserRepository.Update(user);
             _applicationUnit.SaveChanges();
