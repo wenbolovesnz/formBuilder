@@ -11,7 +11,7 @@ namespace FormBuilder.Models
     {
         public int Id { get; set; }
         public string QuestionText { get; set; }
-        public QuestionType QuestionType { get; set; }
+        public int QuestionType { get; set; }
         public bool IsRequired { get; set; }
         public string Tooltip { get; set; }
         public string Value { get; set; }

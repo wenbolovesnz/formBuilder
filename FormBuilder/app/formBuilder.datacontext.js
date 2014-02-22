@@ -17,19 +17,31 @@ formBuilder.factory('datacontext',
                 return formDefinitionSet;
             }           
         }
+        
+        function getFormDefinitionById() {
+            
+                return $resource('api/FormDefinitions', {id: '@formDefinitionId'}, {
+                    query: { method: 'GET', isArray: true }
+                });
+            
+        }
 
         function cacheFormDefinitionSet(data) {
             formDefinitionSet = data;
         }
 
-        function saveEntity(parameters) {
-            
+        function saveFormDefinition() {
+            return $resource('api/FormDefinitions', {},
+            {
+                create: { method: 'POST'}
+            });
         }
 
         return {
             cacheFormDefinitionSet:cacheFormDefinitionSet,
             formDefinitionSets: formDefinitionSets,
-            saveEntity: saveEntity
+            saveFormDefinition: saveFormDefinition,
+            getFormDefinitionById: getFormDefinitionById
         };
 
     }]);

@@ -1,46 +1,37 @@
 ﻿<RecentFiles>
   <RecentFiles>
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Account/f:ExternalLoginConfirmation.cshtml" caret="0" fromTop="0" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Account/f:_ExternalLoginsListPartial.cshtml" caret="70" fromTop="2" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Models/f:AccountModels.cs" caret="587" fromTop="0" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Account/f:_SetPasswordPartial.cshtml" caret="25" fromTop="0" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Account/f:_ChangePasswordPartial.cshtml" caret="74" fromTop="3" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Controllers/f:AccountController.cs" caret="4357" fromTop="48" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Account/f:_RemoveExternalLoginsPartial.cshtml" caret="100" fromTop="4" />
-    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/f:App.config" caret="0" fromTop="0" />
-    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:Organization.cs" caret="476" fromTop="17" />
-    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:FormDefinitionSet.cs" caret="389" fromTop="12" />
-    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:Question.cs" caret="222" fromTop="7" />
-    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:User.cs" caret="288" fromTop="13" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/f:Web.config" caret="794" fromTop="13" />
-    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/d:Enums/f:QuestionType.cs" caret="352" fromTop="22" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:App_Start/f:BundleConfig.cs" caret="1097" fromTop="27" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/f:Global.asax.cs" caret="876" fromTop="18" />
-    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/f:FormBuilderContext.cs" caret="1319" fromTop="19" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:App_Start/f:NinjectWebCommon.cs" caret="2366" fromTop="20" />
-    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:FormDefinitionSetsRepository.cs" caret="456" fromTop="17" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Controllers/f:HomeController.cs" caret="559" fromTop="14" />
-    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:GenericRepository.cs" caret="2050" fromTop="18" />
-    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:UsersRepository.cs" caret="210" fromTop="9" />
-    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:QuestionsRepository.cs" caret="210" fromTop="9" />
-    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:FormBuilderRepository.cs" caret="856" fromTop="16" />
     <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:FormDefinitionsRepository.cs" caret="210" fromTop="9" />
     <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:ApplicationUnit.cs" caret="1805" fromTop="4" />
     <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:OrganizationsRepository.cs" caret="420" fromTop="14" />
-    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:IRepository.cs" caret="335" fromTop="13" />
-    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:FormDefinition.cs" caret="190" fromTop="8" />
     <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Configuration/f:DataBaseInitializer.cs" caret="278" fromTop="9" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/d:Enums/f:QuestionType.cs" caret="71" fromTop="3" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:Organization.cs" caret="476" fromTop="17" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:Question.cs" caret="228" fromTop="9" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Models/f:CreateUserViewModel.cs" caret="0" fromTop="0" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:FormDefinitionSet.cs" caret="289" fromTop="12" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Models/f:FormDefinitionModel.cs" caret="180" fromTop="8" />
+    <File id="837407AC-4FEB-44F5-B0D3-DD7944C45C2C/d:Repository Interfaces/f:IGenericRepository.cs" caret="305" fromTop="11" />
+    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:GenericRepository.cs" caret="1373" fromTop="7" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Controllers/f:FormsController.cs" caret="0" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Models/f:ModelFactory.cs" caret="1653" fromTop="30" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:app/f:formBuilder.datacontext.js" caret="861" fromTop="17" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:app/f:newForm.controller.js" caret="7941" fromTop="28" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Models/f:QuestionModel.cs" caret="281" fromTop="11" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:app/f:dashBoard.controller.js" caret="632" fromTop="15" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Controllers/d:Api/f:FormDefinitionSetsController.cs" caret="943" fromTop="14" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:app/f:dashBoard.view.html" caret="676" fromTop="15" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Home/f:Index.cshtml" caret="1529" fromTop="12" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:app/f:formBuilder.main.js" caret="551" fromTop="12" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Controllers/f:AccountController.cs" caret="1023" fromTop="20" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/f:Global.asax.cs" caret="0" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Controllers/d:Api/f:UsersController.cs" caret="934" fromTop="10" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:FormDefinition.cs" caret="363" fromTop="16" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Controllers/f:HomeController.cs" caret="0" fromTop="0" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:app/f:newForm.view.html" caret="4770" fromTop="11" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Models/f:FormDefinitionSetModel.cs" caret="250" fromTop="10" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Controllers/d:Api/f:FormDefinitionsController.cs" caret="1381" fromTop="11" />
   </RecentFiles>
   <RecentEdits>
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:App_Start/f:AuthConfig.cs" caret="127" fromTop="5" />
-    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/d:Enums/f:QuestionType.cs" caret="377" fromTop="23" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Models/f:AccountModels.cs" caret="208" fromTop="6" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Controllers/f:AccountController.cs" caret="12963" fromTop="18" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Account/f:_RemoveExternalLoginsPartial.cshtml" caret="257" fromTop="10" />
-    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:FormDefinitionSet.cs" caret="731" fromTop="11" />
-    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:Organization.cs" caret="889" fromTop="31" />
-    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/f:Web.config" caret="1195" fromTop="20" />
-    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/f:App.config" caret="881" fromTop="14" />
     <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:Question.cs" caret="222" fromTop="7" />
     <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:User.cs" caret="218" fromTop="10" />
     <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/f:FormBuilderContext.cs" caret="1149" fromTop="20" />
@@ -51,8 +42,6 @@
     <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Views/d:Home/f:Index.cshtml" caret="25" fromTop="0" />
     <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:App_Start/f:BundleConfig.cs" caret="1273" fromTop="18" />
     <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Filters/f:InitializeSimpleMembershipAttribute.cs" caret="1664" fromTop="10" />
-    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:FormDefinition.cs" caret="190" fromTop="8" />
-    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:IRepository.cs" caret="446" fromTop="16" />
     <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:GenericRepository.cs" caret="2224" fromTop="26" />
     <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:UsersRepository.cs" caret="380" fromTop="13" />
     <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:QuestionsRepository.cs" caret="319" fromTop="11" />
@@ -60,7 +49,18 @@
     <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:FormDefinitionSetsRepository.cs" caret="346" fromTop="11" />
     <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:OrganizationsRepository.cs" caret="284" fromTop="9" />
     <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:ApplicationUnit.cs" caret="1912" fromTop="17" />
-    <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Data Repositories/f:FormBuilderRepository.cs" caret="255" fromTop="9" />
     <File id="9D93005C-EF34-41DE-A781-C7BD0D21CEC3/d:Configuration/f:DataBaseInitializer.cs" caret="259" fromTop="9" />
+    <File id="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C/d:Entities/f:FormDefinition.cs" caret="373" fromTop="16" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Controllers/d:Api/f:UsersController.cs" caret="1021" fromTop="10" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:app/f:newForm.view.html" caret="9166" fromTop="24" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Models/f:FormDefinitionModel.cs" caret="484" fromTop="16" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Models/f:FormDefinitionSetModel.cs" caret="278" fromTop="10" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:app/f:dashBoard.view.html" caret="691" fromTop="15" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:app/f:dashBoard.controller.js" caret="619" fromTop="14" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Controllers/d:Api/f:FormDefinitionsController.cs" caret="999" fromTop="17" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Models/f:QuestionModel.cs" caret="351" fromTop="13" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:Models/f:ModelFactory.cs" caret="1362" fromTop="24" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:app/f:formBuilder.datacontext.js" caret="861" fromTop="17" />
+    <File id="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE/d:app/f:newForm.controller.js" caret="7941" fromTop="28" />
   </RecentEdits>
 </RecentFiles>

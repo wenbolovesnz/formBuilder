@@ -8,7 +8,7 @@ namespace FormBuilder.Models
     public class FormDefinitionSetModel
     {
         public int Id { get; set; }
-        public IEnumerable<FormDefinitionModel> FromDefinitionModels { get; set; }
+        public IEnumerable<FormDefinitionModel> FormDefinitionModels { get; set; }
         public OrganizationModel OrganizationModel { get; set; }
 
     }

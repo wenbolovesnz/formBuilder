@@ -21,6 +21,9 @@ namespace FormBuilder.Business.Entities
         public int CreatedBy { get; set; }
         public virtual User User { get; set; }
 
+        public int FormDefinitionSetId { get; set; }
+        public virtual FormDefinitionSet FormDefinitionSet { get; set; }
+
         public virtual ICollection<Question> Questions
         {
             get { return _questions; }

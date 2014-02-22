@@ -16,7 +16,7 @@ namespace FormBuilder.Models
             
             if (formDefinitionSet.FormDefinitions != null)
             {
-                formDefinitionSetModel.FromDefinitionModels = formDefinitionSet.FormDefinitions
+                formDefinitionSetModel.FormDefinitionModels = formDefinitionSet.FormDefinitions
                 .Select(f => Create(f));
             }
 
@@ -38,7 +38,12 @@ namespace FormBuilder.Models
             {
                 Id = question.Id,
                 QuestionText = question.QuestionText,
-                QuestionType = question.QuestionType, 
+                QuestionType = (int)question.QuestionType, 
+                IsRequired =  question.IsRequired,
+                Tooltip = question.Tooltip,
+                Value = question.Value,
+                Index = question.Index,
+                AnswerOptions = question.AnswerOptions                
             };
         }
 
@@ -54,11 +59,11 @@ namespace FormBuilder.Models
             formDefinitionModel.Id = formDefinition.Id;
             formDefinitionModel.Name = formDefinition.FormName;
             formDefinitionModel.CreatedDate = formDefinition.CreatedDate;
+            formDefinitionModel.FormDefinitionSetId = formDefinition.FormDefinitionSetId;
 
             if (formDefinition.Questions != null)
             {
-                formDefinitionModel.QuestionModels = formDefinition.Questions
-                    .Select(f => Create(f)).ToList();
+                formDefinitionModel.Questions = formDefinition.Questions.ToList();
             }
 
             if (formDefinition.User != null)

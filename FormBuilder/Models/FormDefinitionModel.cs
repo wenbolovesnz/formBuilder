@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FormBuilder.Business.Entities;
 
 namespace FormBuilder.Models
 {
@@ -9,10 +10,11 @@ namespace FormBuilder.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public int FormDefinitionSetId { get; set; }
         public DateTime CreatedDate { get; set; }
         public UserModel CreatedByUser { get; set; }
 
-        public IList<QuestionModel> QuestionModels { get; set; }
+        public IList<Question> Questions { get; set; }
 
 
     }

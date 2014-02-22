@@ -8,6 +8,17 @@
             <button data-ng-click="refresh()">refresh</button>
         </div>
     </section>
+    <section>
+        <div data-ng-repeat="formDefinitionSet in formDefinitionSets">
+            <h3>Form Definition Versions, need to a name here</h3>
+            <div data-ng-repeat="formDefinitionModel in formDefinitionSet.formDefinitionModels">
+                <span>Id: {{formDefinitionModel.id}}</span>
+                <button data-ng-click="viewFormDefinitionVersion(formDefinitionModel)">View</button>
+            </div>
+
+        </div>
+
+    </section>
 
 </article>
 

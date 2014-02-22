@@ -7,9 +7,14 @@ formBuilder.controller('DashBoardCtrl',
             datacontext.cacheFormDefinitionSet($scope.formDefinitionSets);
         });
 
-        $scope.refresh = function () {
+        $scope.refresh = function() {
             $scope.formDefinitionSets = datacontext.formDefinitionSets().query();
-        }
+        };
+
+        $scope.viewFormDefinitionVersion = function(formDefinitionModel) {
+            window.location = '/#newForm/' + '?formDefinitionId=' + formDefinitionModel.id;
+        };
+        
         
         logger.log("creating DashBoard");
         

@@ -29,15 +29,10 @@ namespace FormBuilder.Controllers.Api
         }
 
         // POST api/users
+        [Authorize(Roles = "Admin")]
         public UserModel Post([FromBody]CreateUserViewModel model)
         {
-            User currentUser;
-            if (WebSecurity.IsAuthenticated)
-            {
-                currentUser = _applicationUnit.UserRepository.GetByID(WebSecurity.CurrentUserId);
-
-                if (currentUser.Roles.SingleOrDefault(m => m.RoleId == (int)RoleTypes.Admin) != null)
-                {
+            User currentUser = _applicationUnit.UserRepository.GetByID(WebSecurity.CurrentUserId);
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     User newUser = _applicationUnit.UserRepository.Get(m => m.UserName == model.UserName).First();
                     newUser.ForceChangePassword = true;
@@ -45,15 +40,6 @@ namespace FormBuilder.Controllers.Api
                     newUser.Organization = currentUser.Organization;
                     newUser.Roles.Add(_applicationUnit.RoleRepository.GetByID(model.RoleId));
                     return new UserModel {Id = newUser.Id, UserName = newUser.UserName, Organization = null};
-                }
-                else
-                {
-                    return null;
-                }
-                
-            }
-
-            return null;
         }
     }
 }

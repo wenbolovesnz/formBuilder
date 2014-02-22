@@ -4,18 +4,62 @@
  *     logger - logs and caches session log messages (about.logger.js)
  */
 formBuilder.controller('NewFormCtrl',
-    ['$scope', 'logger',
-    function ($scope, logger) {
+    ['$scope', 'logger', 'datacontext','$routeParams',
+    function ($scope, logger, datacontext, $routeParams) {
 
-        $scope.questions = [new QuestionInt({ label: 'Integer', type: 1, isRequired: true }),
-                            new QuestionString({ label: 'String', type: 5, isRequired: true }),
-                            new QuestionMoney({ label: 'Money', type: 2, isRequired: true }),
-                            new QuestionBoolean({ label: 'Boolean', type: 4, isRequired: true }),
-                            new QuestionString({ label: 'Select', type: 6, isRequired: true, answerOptions: [1, 2, 3, 4, 5] }),
-                            new QuestionMultiSelect({ label: 'MultiSelect', type: 7, isRequired: true, answerOptions: ['Option A', 'Option B', 'Option C', 'Option D', 'Option E'] }),
-                            new QuestionDate({label:'Date', type: 3, isRequired: true})
-        ];
-        
+        if ($routeParams.formDefinitionId) {
+            $scope.questions = [];
+            
+            var questionsFromServer = datacontext.getFormDefinitionById().query({ id: $routeParams.formDefinitionId }, function () {                
+                angular.forEach(questionsFromServer, function (question, index) {                    
+                    var newQuestion = {};
+                    var label = question.questionText;
+                    var type = question.questionType;
+                    var isRequired = question.isRequired;                    
+                    switch (type) {
+                        case 1:
+                            newQuestion = new QuestionInt({ label: label, type: type, isRequired: isRequired });
+                            break;
+                        case 2:
+                            newQuestion = new QuestionMoney({ label: label, type: type, isRequired: isRequired });
+                            break;
+                        case 3:
+                            newQuestion = new QuestionDate({ label: label, type: type, isRequired: isRequired });
+                            break;
+                        case 5:
+                            newQuestion = new QuestionString({ label: label, type: type, isRequired: isRequired });
+                            break;
+                        case 6:
+                            if (question.answerOptions) {
+                                var answerOptions = mapAnswerOptions(question.answerOptions);
+                                newQuestion = new QuestionString({ label: label, type: type, isRequired: isRequired, answerOptions: answerOptions });
+                            }
+                            break;
+                        case 7:
+                            if (question.answerOptions) {
+                                var answerOptions = mapAnswerOptions(question.answerOptions);
+                                newQuestion = new QuestionMultiSelect({ label: label, type: type, isRequired: isRequired, answerOptions: answerOptions });
+                            }
+                            break;
+                        default:
+                            newQuestion = new QuestionString({ label: label, type: type, isRequired: isRequired });
+                    }
+                    $scope.questions.push(newQuestion);                   
+                });
+
+            });
+        } else {
+            //create new form, so have some default questions
+            $scope.questions = [new QuestionInt({ label: 'Integer', type: 1, isRequired: true }),
+                     new QuestionString({ label: 'String', type: 5, isRequired: true }),
+                     new QuestionMoney({ label: 'Money', type: 2, isRequired: true }),
+                     new QuestionBoolean({ label: 'Boolean', type: 4, isRequired: true }),
+                     new QuestionString({ label: 'Select', type: 6, isRequired: true, answerOptions: [1, 2, 3, 4, 5] }),
+                     new QuestionMultiSelect({ label: 'MultiSelect', type: 7, isRequired: true, answerOptions: ['Option A', 'Option B', 'Option C', 'Option D', 'Option E'] }),
+                     new QuestionDate({ label: 'Date', type: 3, isRequired: true })
+            ];
+        }
+               
         $scope.questionTypes = [
                                 { value: 1, name: 'Integer' },
                                 { value: 2, name: 'Money' },
@@ -34,6 +78,8 @@ formBuilder.controller('NewFormCtrl',
 
         $scope.addQuestion = addQuestion;
         $scope.validateQuestion = validateQuestion;
+
+        $scope.saveFormDefinition = saveFormDefinition;
 
         function addQuestion() {
             var label = $scope.questionLabel;
@@ -99,6 +145,31 @@ formBuilder.controller('NewFormCtrl',
                 answerOptions.push($.trim(option));
             });
             return answerOptions;
+        }
+        
+        function saveFormDefinition() {
+
+            var questionsForSave = [];
+            angular.forEach($scope.questions, function(question, index) {
+                var newQuestion = {
+                    QuestionText: question.label,
+                    QuestionType: question.type,
+                    IsRequired: question.isRequired,
+                    Tooltip: question.toolTip,
+                    Value: question.value,
+                    Index: index,
+                    AnswerOptions: question.answerOptions // need make create it as string. otherwise server wont save it.
+                };
+                questionsForSave.push(newQuestion);
+            });
+            var formDefinitionModel = {
+                Questions: questionsForSave,
+                FormDefinitionSetId: 0
+            };
+            
+            datacontext.saveFormDefinition().create(formDefinitionModel, function () {
+                window.location = '/#';
+            });
         }
 
     }]);

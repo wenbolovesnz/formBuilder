@@ -2,6 +2,5 @@
   <Module PersistentId="9D93005C-EF34-41DE-A781-C7BD0D21CEC3" ModuleId="FormBuilder.Data" />
   <Module PersistentId="9D0C419C-0E6F-45C5-BB8D-7D83540BCF1C" ModuleId="FormBuilder.Business" />
   <Module PersistentId="2FB6278A-F9E6-4EC4-B881-058DD9DF43FE" ModuleId="FormBuilder" />
-  <Module PersistentId="E92D474C-415B-4F99-84DF-962F51E93888" ModuleId="ConsoleApplication1" />
-  <Module PersistentId="0F128949-4ADB-4949-BE5A-644ACAE6F75B" ModuleId="ConsoleApplication2" />
+  <Module PersistentId="837407AC-4FEB-44F5-B0D3-DD7944C45C2C" ModuleId="FormBuilder.Data.Contracts" />
 </Modules>
