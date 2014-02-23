@@ -5,6 +5,7 @@ using FormBuilder.Business.Entities;
 using FormBuilder.Models;
 using FormBuilder.Data.Contracts;
 using System.Linq;
+using WebMatrix.WebData;
 
 namespace FormBuilder.Controllers.Api
 {
@@ -20,12 +21,16 @@ namespace FormBuilder.Controllers.Api
         }
 
         // GET
+        [Authorize]
         public IEnumerable<Object> Get()
         {
+            User currentUser = _applicationUnit.UserRepository.GetByID(WebSecurity.CurrentUserId);
+
             // We can pass includeProperties: "Organization,FormDefinitions" to Get method to load related entities.
             return _applicationUnit.FormDefinitionSetRepository.Get(
                             includeProperties: "Organization,FormDefinitions",
-                            orderBy: fd => fd.OrderBy(k => k.OrganizationId))
+                            orderBy: fd => fd.OrderBy(k => k.OrganizationId),
+                            filter: fd => fd.OrganizationId == currentUser.OrganizationId)
                         .Select(f => _modelFactory.Create(f));
         }
 
