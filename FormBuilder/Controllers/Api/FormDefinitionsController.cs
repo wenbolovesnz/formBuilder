@@ -24,14 +24,19 @@ namespace FormBuilder.Controllers.Api
         }
 
         //Get form definiton by id
-        public IEnumerable<Object> Get(int id)
+        public Object Get(int id)
         {
-
             FormDefinition formDefinition = _applicationUnit.FormDefinationRepository.Get( includeProperties: "Questions", filter: m => m.Id == id).FirstOrDefault();
+            
+            FormDefinitionModel formDefinitionModel = new FormDefinitionModel()
+            {
+                Name = formDefinition.FormName,
+                Id = formDefinition.Id,
+                FormDefinitionSetId = formDefinition.FormDefinitionSetId,
+                Questions = formDefinition.Questions.ToList()
+            };
 
-            IList<QuestionModel> questions = formDefinition.Questions.Select(m => _modelFactory.Create(m)).ToList();
-
-            return questions;
+            return formDefinitionModel;
         }
 
         //post, save a form definition, create a new form definition set if new, or just add form definition to its parent

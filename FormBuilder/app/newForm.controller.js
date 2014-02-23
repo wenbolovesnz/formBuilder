@@ -10,8 +10,10 @@ formBuilder.controller('NewFormCtrl',
         if ($routeParams.formDefinitionId) {
             $scope.questions = [];
             
-            var questionsFromServer = datacontext.getFormDefinitionById().query({ id: $routeParams.formDefinitionId }, function () {                
-                angular.forEach(questionsFromServer, function (question, index) {                    
+            var formDefinition = datacontext.getFormDefinitionById().query({ id: $routeParams.formDefinitionId }, function () {
+                $scope.formName = formDefinition.name;
+                $scope.formDefinitionSetId = formDefinition.formDefinitionSetId;
+                angular.forEach(formDefinition.questions, function (question, index) {
                     var newQuestion = {};
                     var label = question.questionText;
                     var type = question.questionType;
@@ -164,7 +166,7 @@ formBuilder.controller('NewFormCtrl',
             });
             var formDefinitionModel = {
                 Questions: questionsForSave,
-                FormDefinitionSetId: 0,
+                FormDefinitionSetId: $scope.formDefinitionSetId,
                 Name: $scope.formName
             };
             

@@ -21,7 +21,7 @@ formBuilder.factory('datacontext',
         function getFormDefinitionById() {
             
                 return $resource('api/FormDefinitions', {id: '@formDefinitionId'}, {
-                    query: { method: 'GET', isArray: true }
+                    query: { method: 'GET' }
                 });
             
         }
