@@ -2,11 +2,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h2>Configure form's question here</h2>
+            <div class="well">
+                <input data-ng-model="formName" class="form-control" type="text" placeholder="Form Name">
+            </div>                        
             <div class="well">
                 <form name="questionConfig" data-ng-submit="addQuestion()" class="bs-example form-horizontal">
                     <fieldset>
-                        <legend>Legend</legend>
+                        <legend>Configure Question</legend>
                         <div class="form-group">
                             <label for="questionLabel" class="col-lg-2 control-label">Question Label:</label>
                             <div class="col-lg-10">
@@ -65,13 +67,11 @@
 
         </div>
         <div class="col-md-6">
-            <h2>View Form here</h2>           
-            
             <div class="well">
                 <form name="formQuickView"
                       class="form-horizontal">
                     <fieldset>
-                        <legend>Legend</legend>
+                        <legend>{{formName}}</legend>
                         <div class="form-group" data-ng-repeat="question in questions" >
                             <label class="col-md-2 control-label">{{question.label}}:</label>
                             
@@ -122,11 +122,11 @@
                                 </div>
                                 
                                 <span class="error" 
-                                          data-ng-show="question.error">{{question.errorMessage}}</span>
+                                      data-ng-show="question.error">{{question.errorMessage}}</span>
                             </div>
                                                         
                         </div>                        
-                        <button data-ng-disabled="!formQuickView.$valid || !noError"
+                        <button data-ng-disabled="(!formQuickView.$valid || !noError)"
                                 data-ng-click ="saveFormDefinition()" class="btn btn-primary pull-right">Submit</button>                                                           
                     </fieldset>
                 </form>

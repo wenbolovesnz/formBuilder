@@ -55,7 +55,7 @@ namespace FormBuilder.Controllers.Api
                                                         CreatedBy = currentUser.Id,
                                                         CreatedDate = System.DateTime.Now,
                                                         FormDefinitionSet = formDefinitionSet,
-                                                        FormName = "",
+                                                        FormName = formDefinitionModel.Name,
                                                         User = currentUser,
                                                         Questions = formDefinitionModel.Questions
                                                     };
@@ -75,7 +75,7 @@ namespace FormBuilder.Controllers.Api
                      CreatedBy = currentUser.Id,
                      CreatedDate = System.DateTime.Now,
                      FormDefinitionSet = formDefinitionSet,
-                     FormName = "",
+                     FormName = formDefinitionModel.Name,
                      User = currentUser,
                      Questions = formDefinitionModel.Questions
                  };

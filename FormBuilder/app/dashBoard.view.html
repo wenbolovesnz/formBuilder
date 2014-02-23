@@ -1,24 +1,76 @@
-﻿<article style="text-align: center;">
-    <h3>Dashboard</h3>
-    
-    <section>
-        Numbers of Form Definitions: {{formDefinitionSets.length}}
-        <div>
-            
-            <button data-ng-click="refresh()">refresh</button>
-        </div>
-    </section>
-    <section>
-        <div data-ng-repeat="formDefinitionSet in formDefinitionSets">
-            <h3>Form Definition Versions, need to a name here</h3>
-            <div data-ng-repeat="formDefinitionModel in formDefinitionSet.formDefinitionModels">
-                <span>Id: {{formDefinitionModel.id}}</span>
-                <button data-ng-click="viewFormDefinitionVersion(formDefinitionModel)">View</button>
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Your Form Definitions: {{formDefinitionSets.length}} found </h3>
+                </div>
+                <div class="panel-body">
+                    <div data-ng-repeat="formDefinitionSet in formDefinitionSets">                                                
+                        <div class="bs-example table-responsive">
+                            <table class="table table-hover ">
+                                <thead>
+                                    <tr>
+                                        <th>Version</th>
+                                        <th>Form Name</th>
+                                        <th>Created Date</th>
+                                        <th></th>                                
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="formDefinitionModel in formDefinitionSet.formDefinitionModels">
+                                        <td>{{$index + 1}}</td>
+                                        <td>{{formDefinitionModel.name}}</td>
+                                        <td>{{formDefinitionModel.createdDate | date:'d/M/yy h:mm a'}}</td>
+                                        <td><button type="button" class="btn btn-primary btn-sm" data-ng-click="viewFormDefinitionVersion(formDefinitionModel)">View/Edit</button></td>
+                                    </tr>
+                                </tbody>
+                            </table> 
+                        </div>
+
+                    </div>
+                </div>
             </div>
-
         </div>
+        
+        <div class="col-md-6">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Your published Forms</h3>
+                </div>
+                <div class="panel-body">
+                    comming soon...
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Your Organization information </h3>
+                </div>
+                <div class="panel-body">
+                    comming soon...
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Users in your Organization</h3>
+                </div>
+                <div class="panel-body">
+                    comming soon...
+                </div>
+            </div>
+        </div>
+    </div>
 
-    </section>
+    
 
-</article>
+</div>
+
 

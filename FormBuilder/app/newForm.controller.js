@@ -158,13 +158,14 @@ formBuilder.controller('NewFormCtrl',
                     Tooltip: question.toolTip,
                     Value: question.value,
                     Index: index,
-                    AnswerOptions: question.answerOptions // need make create it as string. otherwise server wont save it.
+                    AnswerOptions: question.answerOptions? question.answerOptions.join(',') : null 
                 };
                 questionsForSave.push(newQuestion);
             });
             var formDefinitionModel = {
                 Questions: questionsForSave,
-                FormDefinitionSetId: 0
+                FormDefinitionSetId: 0,
+                Name: $scope.formName
             };
             
             datacontext.saveFormDefinition().create(formDefinitionModel, function () {
