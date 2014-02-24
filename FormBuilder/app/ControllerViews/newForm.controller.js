@@ -76,11 +76,32 @@ formBuilder.controller('NewFormCtrl',
 
         //Form Config defaults
         $scope.questionType = $scope.questionTypes[0];
-
         $scope.addQuestion = addQuestion;
         $scope.validateQuestion = validateQuestion;
-
         $scope.saveFormDefinition = saveFormDefinition;
+        $scope.moveUp = moveUp;
+        $scope.moveDown = moveDown;
+        $scope.remove = remove;
+        
+        function moveUp(index) {
+            if (index != 0) {
+                var question = $scope.questions[index];
+                remove(index);
+                $scope.questions.splice(index - 1, 0, question);
+            }
+        }
+
+        function moveDown(index) {
+            if (index != $scope.questions.length - 1) {
+                var question = $scope.questions[index];
+                remove(index);
+                $scope.questions.splice(index + 1, 0, question);
+            }
+        }
+
+        function remove(index) {
+            $scope.questions.splice(index, 1);        
+        }
 
         function addQuestion() {
             var label = $scope.questionLabel;
