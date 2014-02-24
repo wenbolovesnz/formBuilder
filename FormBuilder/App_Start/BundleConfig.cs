@@ -38,9 +38,21 @@ namespace FormBuilder
                 "~/app/models/question.multiSelect.js",
                 "~/app/models/question.string.js",
                 "~/app/formBuilder.datacontext.js",
-                "~/app/dashBoard.controller.js",
-                "~/app/newForm.controller.js",
-                "~/app/about.logger.js"
+                "~/app/ControllerViews/dashBoard.controller.js",
+                "~/app/ControllerViews/newForm.controller.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/myform").Include(
+                "~/app/myform.main.js", // must be first   
+                "~/app/models/question.base.js",
+                "~/app/models/question.boolean.js",
+                "~/app/models/question.date.js",
+                "~/app/models/question.int.js",
+                "~/app/models/question.money.js",
+                "~/app/models/question.multiSelect.js",
+                "~/app/models/question.string.js",
+                "~/app/myform.datacontext.js",
+                "~/app/ControllerViews/publishedForm.controller.js"
                 ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

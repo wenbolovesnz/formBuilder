@@ -25,6 +25,14 @@ formBuilder.factory('datacontext',
                 });
             
         }
+        
+        function getPublishedFormDefinition() {
+
+            return $resource('api/FormDefinitions', { orgId: '@orgId', formName: '@formName' }, {
+                query: { method: 'GET' }
+            });
+
+        }
 
         function cacheFormDefinitionSet(data) {
             formDefinitionSet = data;
@@ -41,7 +49,8 @@ formBuilder.factory('datacontext',
             cacheFormDefinitionSet:cacheFormDefinitionSet,
             formDefinitionSets: formDefinitionSets,
             saveFormDefinition: saveFormDefinition,
-            getFormDefinitionById: getFormDefinitionById
+            getFormDefinitionById: getFormDefinitionById,
+            getPublishedFormDefinition: getPublishedFormDefinition
         };
 
     }]);

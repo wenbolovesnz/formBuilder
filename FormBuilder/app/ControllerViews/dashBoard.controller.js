@@ -1,10 +1,21 @@
 ﻿
 formBuilder.controller('DashBoardCtrl',
-    ['$scope', 'datacontext', 'logger',
-    function ($scope, datacontext, logger) {
+    ['$scope', 'datacontext',
+    function ($scope, datacontext) {
 
+        $scope.publishedForms = [];
+        
         $scope.formDefinitionSets = datacontext.formDefinitionSets(true).query(function () {
             datacontext.cacheFormDefinitionSet($scope.formDefinitionSets);
+
+            angular.forEach($scope.formDefinitionSets, function (formDefinitionSet, index) {
+                angular.forEach(formDefinitionSet.formDefinitionModels, function (formDefinition, index) {
+                    if (formDefinition.isPublished == true) {
+                        $scope.publishedForms.push(formDefinition);
+                    }
+                });
+            });
+
         });
 
         $scope.refresh = function() {
@@ -16,6 +27,5 @@ formBuilder.controller('DashBoardCtrl',
         };
         
         
-        logger.log("creating DashBoard");
         
     }]);

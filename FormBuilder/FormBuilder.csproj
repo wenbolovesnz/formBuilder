@@ -206,11 +206,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\AnsweredFormsController.cs" />
     <Compile Include="Controllers\Api\FormDefinitionSetsController.cs" />
     <Compile Include="Controllers\Api\FormDefinitionsController.cs" />
     <Compile Include="Controllers\Api\UsersController.cs" />
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MyFormController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Filters\ValidateHttpAntiForgeryTokenAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -227,10 +229,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\ControllerViews\publishedForm.controller.js" />
     <Content Include="app\models\question.base.js" />
     <Content Include="app\models\question.date.js" />
     <Content Include="app\models\question.money.js" />
     <Content Include="app\models\question.string.js" />
+    <Content Include="app\myform.datacontext.js" />
+    <Content Include="app\myform.main.js" />
+    <Content Include="app\Templates\publishedForm.view.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -551,14 +557,13 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="app\newForm.controller.js" />
-    <Content Include="app\about.logger.js" />
-    <Content Include="app\newForm.view.html" />
+    <Content Include="app\ControllerViews\newForm.controller.js" />
+    <Content Include="app\Templates\newForm.view.html" />
     <Content Include="app\ajaxlogin.js" />
-    <Content Include="app\dashBoard.controller.js" />
+    <Content Include="app\ControllerViews\dashBoard.controller.js" />
     <Content Include="app\formBuilder.datacontext.js" />
     <Content Include="app\formBuilder.main.js" />
-    <Content Include="app\dashBoard.view.html" />
+    <Content Include="app\Templates\dashBoard.view.html" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\TodoList.css" />
     <Content Include="Scripts\_references.js" />
@@ -582,6 +587,7 @@
     <Content Include="Views\Home\_Login.cshtml" />
     <Content Include="Views\Home\_Register.cshtml" />
     <Content Include="Views\Home\FormDefinationSets.cshtml" />
+    <Content Include="Views\MyForm\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

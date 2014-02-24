@@ -1,31 +1,30 @@
-﻿/* main: startup script creates the 'formBuilder' module and adds custom Ng directives */
+﻿/* main: startup script creates the 'myform' module and adds custom Ng directives */
 
-// 'formBuilder' is the one Angular (Ng) module in this app
-// 'formBuilder' module is in global namespace
-window.formBuilder = angular.module('formBuilder', ['ngRoute', 'ngResource']);
+// 'myform' is the one Angular (Ng) module in this app
+// 'myform' module is in global namespace
+window.myform = angular.module('myform', ['ngRoute', 'ngResource']);
 
-formBuilder.value('Q', window.Q);
+myform.value('Q', window.Q);
 
 // Configure routes
-formBuilder.config(['$routeProvider', function ($routeProvider) {
-      $routeProvider.
-          when('/', { templateUrl: 'app/templates/dashBoard.view.html', controller: 'DashBoardCtrl' }).
-          when('/newForm', { templateUrl: 'app/templates/newForm.view.html', controller: 'NewFormCtrl' }).          
-          otherwise({ redirectTo: '/' });
-  }]);
+myform.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.
+        when('/org/:orgId/formName/:formName', { templateUrl: '/app/templates/publishedForm.view.html', controller: 'PublishedFormCtrl' }).
+        otherwise({ redirectTo: '/' });
+}]);
 
 //#region Ng directives
 /*  We extend Angular with custom data bindings written as Ng directives */
-formBuilder.directive('onFocus', function () {
-        return {
-            restrict: 'A',
-            link: function (scope, elm, attrs) {
-                elm.bind('focus', function () {
-                    scope.$apply(attrs.onFocus);
-                });
-            }
-        };
-    })
+myform.directive('onFocus', function () {
+    return {
+        restrict: 'A',
+        link: function (scope, elm, attrs) {
+            elm.bind('focus', function () {
+                scope.$apply(attrs.onFocus);
+            });
+        }
+    };
+})
     .directive('onBlur', function () {
         return {
             restrict: 'A',
@@ -65,14 +64,14 @@ formBuilder.directive('onFocus', function () {
             scope: {
                 text: "@"
             },
-            template: "<div class= 'col-md-6'>{{text}}</div>" + 
+            template: "<div class= 'col-md-6'>{{text}}</div>" +
                       "<input class='col-md-6'/>"
         }
     });
 if (!Modernizr.input.placeholder) {
     // this browser does not support HTML5 placeholders
     // see http://stackoverflow.com/questions/14777841/angularjs-inputplaceholder-directive-breaking-with-ng-model
-    formBuilder.directive('placeholder', function () {
+    myform.directive('placeholder', function () {
         return {
             restrict: 'A',
             require: 'ngModel',

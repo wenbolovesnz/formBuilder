@@ -18,6 +18,7 @@ namespace FormBuilder.Business.Entities
         public int Id { get; set; }        
         public string FormName { get; set; }        
         public DateTime CreatedDate { get; set; }
+        public bool IsPublished { get; set; }
         public int CreatedBy { get; set; }
         public virtual User User { get; set; }
 

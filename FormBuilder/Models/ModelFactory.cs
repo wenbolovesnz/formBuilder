@@ -60,6 +60,7 @@ namespace FormBuilder.Models
             formDefinitionModel.Name = formDefinition.FormName;
             formDefinitionModel.CreatedDate = formDefinition.CreatedDate;
             formDefinitionModel.FormDefinitionSetId = formDefinition.FormDefinitionSetId;
+            formDefinitionModel.IsPublished = formDefinition.IsPublished;
 
             if (formDefinition.Questions != null)
             {

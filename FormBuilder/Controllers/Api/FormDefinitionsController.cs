@@ -23,20 +23,44 @@ namespace FormBuilder.Controllers.Api
             _modelFactory = new ModelFactory();
         }
 
-        //Get form definiton by id
-        public Object Get(int id)
+        //Get 
+        public Object Get(int id, int orgId, string formName)
         {
-            FormDefinition formDefinition = _applicationUnit.FormDefinationRepository.Get( includeProperties: "Questions", filter: m => m.Id == id).FirstOrDefault();
-            
-            FormDefinitionModel formDefinitionModel = new FormDefinitionModel()
+            if (id != 0)
             {
-                Name = formDefinition.FormName,
-                Id = formDefinition.Id,
-                FormDefinitionSetId = formDefinition.FormDefinitionSetId,
-                Questions = formDefinition.Questions.ToList()
-            };
+                FormDefinition formDefinition =
+                    _applicationUnit.FormDefinationRepository.Get(includeProperties: "Questions",
+                                                                  filter: m => m.Id == id).FirstOrDefault();
 
-            return formDefinitionModel;
+                FormDefinitionModel formDefinitionModel = new FormDefinitionModel()
+                    {
+                        Name = formDefinition.FormName,
+                        Id = formDefinition.Id,
+                        FormDefinitionSetId = formDefinition.FormDefinitionSetId,
+                        Questions = formDefinition.Questions.ToList()
+                    };
+
+                return formDefinitionModel;
+            }
+            else
+            {
+                FormDefinition formDefinition =
+                    _applicationUnit.FormDefinationRepository.Get(includeProperties: "Questions",
+                                                                  filter: m => m.FormName == formName 
+                                                                          && m.FormDefinitionSet.OrganizationId == orgId
+                                                                          && m.IsPublished).FirstOrDefault();
+
+                FormDefinitionModel formDefinitionModel = new FormDefinitionModel()
+                    {
+                        Name = formDefinition.FormName,
+                        Id = formDefinition.Id,
+                        FormDefinitionSetId = formDefinition.FormDefinitionSetId,
+                        Questions = formDefinition.Questions.ToList()
+                    };
+
+                return formDefinitionModel;
+            }
+
         }
 
         //post, save a form definition, create a new form definition set if new, or just add form definition to its parent
@@ -53,7 +77,6 @@ namespace FormBuilder.Controllers.Api
                                                               Organization = currentUser.Organization,
                                                               OrganizationId = currentUser.OrganizationId.Value
                                                           };
-
 
                 FormDefinition formDefinition = new FormDefinition()
                                                     {

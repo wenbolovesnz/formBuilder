@@ -66,6 +66,13 @@ namespace FormBuilder.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult LogOut()
+        {
+            WebSecurity.Logout();
+
+            return RedirectToAction("Index", "Home");
+        }
+
         //
         // POST: /Account/JsonRegister
         [HttpPost]

@@ -20,13 +20,8 @@
             @RenderBody()
         </div>
 
-        <footer>
-            <nav>
-                @*<ul id="menu">                    
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "HelpPage" }, null)</li>
-                </ul>*@
-            </nav>             
-            <p>&copy; @DateTime.Now.Year - @ViewBag.Title SPA</p>
+        <footer style="position: absolute; bottom: 5px;">
+            <p>&copy; @DateTime.Now.Year - Form Builder</p>
         </footer>
 
         @Scripts.Render("~/bundles/jquery")

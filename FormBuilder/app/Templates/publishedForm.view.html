@@ -1,0 +1,75 @@
+﻿
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-12">
+            <div class="well">
+                <form name="formQuickView"
+                      class="form-horizontal">
+                    <fieldset>
+                        <legend>{{formName}}</legend>
+                        <div class="form-group" data-ng-repeat="question in questions" >
+                            <label class="col-md-2 control-label">{{question.label}}:</label>
+                            
+                            <div class="col-md-10">
+                                <input type="text" 
+                                       data-ng-show= "!question.isBoolean && !question.isSelect && !question.isMultiSelect && !question.isDate"
+                                       class="form-control"                                        
+                                       data-ng-model="question.value"
+                                       data-ng-change="validateQuestion(question)"
+                                       data-ng-required="question.isRequired && !question.isBoolean && !question.isSelect  && !question.isMultiSelect && !question.isDate">
+                                <input type="text" 
+                                       data-ng-show= "question.isDate"
+                                       class="form-control"                                        
+                                       data-ng-model="question.value"
+                                       data-ng-change="validateQuestion(question)"
+                                       data-ng-required="question.isRequired && question.isDate"
+                                       placeholder="Date/Month/Year">
+                                <input type="checkbox"
+                                       data-ng-show= question.isBoolean
+                                       class="form-control form-control-no-shadow" 
+                                       style="margin-bottom: 8px; margin-top: 10px;"                                       
+                                       data-ng-model="question.value"
+                                       data-ng-init="question.value"
+                                       data-ng-change="validateQuestion(question)"                                       
+                                       data-ng-true-value="YES" data-ng-false-value="NO">
+                                <select class="form-control"
+                                        
+                                        data-ng-show= question.isSelect
+                                        data-ng-model="question.value"
+                                        data-ng-change="validateQuestion(question)"
+                                        data-ng-options="option for option in question.answerOptions"                                                                    
+                                        data-ng-required="question.isRequired && question.isSelect">
+                                    <option value="">-- Please Select --</option>
+                                </select>
+                                
+                                <div class="row" data-ng-show= question.isMultiSelect data-ng-repeat="option in question.subQuestions">
+                                    <div class="">
+                                        <input type="checkbox" style="height: 20px;"                                              
+                                               class="col-md-4"
+                                               data-ng-model="option.value"
+                                               data-ng-change="validateQuestion(question)"
+                                               data-ng-required="question.isRequired && question.isMultiSelect">                                     
+                                               
+                                        <label class="col-md-8" style="text-align: left; height: 20px; padding-top: 4px">
+                                            {{option.label}}
+                                        </label>    
+                                    </div>
+                                </div>
+                                
+                                <span class="error" 
+                                      data-ng-show="question.error">{{question.errorMessage}}</span>
+                            </div>
+                                                        
+                        </div>                        
+                        <button data-ng-disabled="(!formQuickView.$valid || !noError)"
+                                data-ng-click ="saveFormDefinition()" class="btn btn-primary pull-right">Submit</button>                                                           
+                    </fieldset>
+                </form>
+            </div>
+            
+
+        </div>
+    </div>
+
+</div>
