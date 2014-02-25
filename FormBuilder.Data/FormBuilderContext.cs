@@ -18,7 +18,8 @@ namespace FormBuilder.Data
         public DbSet<User> Users { get; set; }
         public DbSet<FormDefinitionSet> FormDefinitionSets { get; set; }
         public DbSet<Organization> Organizations { get; set; }
-        public DbSet<Role> Roles { get; set; }       
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<AnsweredForm> AnsweredForms { get; set; }
 
 
         public static string ConnectionStringName

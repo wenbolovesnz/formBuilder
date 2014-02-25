@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\DataBaseInitializer.cs" />
+    <Compile Include="Data Repositories\AnsweredFormRepository.cs" />
     <Compile Include="Data Repositories\ApplicationUnit.cs" />
     <Compile Include="Data Repositories\FormDefinitionSetsRepository.cs" />
     <Compile Include="Data Repositories\FormDefinitionsRepository.cs" />

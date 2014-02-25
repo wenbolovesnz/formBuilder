@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\AnsweredForm.cs" />
     <Compile Include="Entities\Enums\RoleTypes.cs" />
     <Compile Include="Entities\Enums\UserType.cs" />
     <Compile Include="Entities\FormDefinition.cs" />

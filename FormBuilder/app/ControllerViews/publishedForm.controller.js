@@ -113,14 +113,15 @@ myform.controller('PublishedFormCtrl',
                 };
                 questionsForSave.push(newQuestion);
             });
+            
             var formDefinitionModel = {
                 Questions: questionsForSave,
-                FormDefinitionSetId: $scope.formDefinitionSetId,
-                Name: $scope.formName
+                FormDefinitionId: $scope.formDefinitionId,
+                formName: $scope.formName
             };
 
-            datacontext.saveFormDefinition().create(formDefinitionModel, function () {
-                window.location = '/#';
+            datacontext.saveForm().create(formDefinitionModel, function () {
+                alert('done');
             });
         }
 

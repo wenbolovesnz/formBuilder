@@ -72,6 +72,7 @@ namespace FormBuilder.App_Start
             kernel.Bind<IGenericRepository<FormDefinition>>().To<GenericRepository<FormDefinition>>().InRequestScope();
             kernel.Bind<IGenericRepository<Question>>().To<GenericRepository<Question>>().InRequestScope();
             kernel.Bind<IGenericRepository<Organization>>().To<GenericRepository<Organization>>().InRequestScope();
+            kernel.Bind<IGenericRepository<AnsweredForm>>().To<GenericRepository<AnsweredForm>>().InRequestScope();
         }        
     }
 }

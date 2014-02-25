@@ -25,7 +25,10 @@ formBuilder.controller('DashBoardCtrl',
         $scope.viewFormDefinitionVersion = function(formDefinitionModel) {
             window.location = '/#newForm/' + '?formDefinitionId=' + formDefinitionModel.id;
         };
-        
+
+        $scope.viewPublishedFormDetails = function(formDefinitionId) {
+            window.location = '/#publishedFormDetails/' + '?formDefinitionId=' + formDefinitionId;
+        };        
         
         
     }]);

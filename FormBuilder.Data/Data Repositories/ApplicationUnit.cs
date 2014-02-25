@@ -14,6 +14,7 @@ namespace FormBuilder.Data
         private IGenericRepository<FormDefinitionSet> _formDefinitionSetRepository;
         private IGenericRepository<FormDefinition> _formDefinitionRepository;
         private IGenericRepository<Role> _roleRepository;
+        private IGenericRepository<AnsweredForm> _answeredFormRepository;
 
         public ApplicationUnit(IGenericRepository<User> userRepository, 
                                IGenericRepository<Role> roleRepository,
@@ -21,6 +22,7 @@ namespace FormBuilder.Data
                                IGenericRepository<Organization> organizationRepository,
                                IGenericRepository<FormDefinitionSet> formDefinitionSetRepository, 
                                IGenericRepository<FormDefinition> formDefinitionRepository,
+                               IGenericRepository<AnsweredForm> answeredFormRepository,
                                FormBuilderContext formBuilderContext)
         {
             _userRepository = userRepository;
@@ -29,6 +31,7 @@ namespace FormBuilder.Data
             _organizationRepository = organizationRepository;
             _formDefinitionSetRepository = formDefinitionSetRepository;
             _formDefinitionRepository = formDefinitionRepository;
+            _answeredFormRepository = answeredFormRepository;
             _context = formBuilderContext;
         }
 
@@ -65,6 +68,14 @@ namespace FormBuilder.Data
             get
             {
                 return this._formDefinitionRepository;
+            }
+        }
+
+        public IGenericRepository<AnsweredForm> AnsweredFormRepository
+        {
+            get
+            {
+                return this._answeredFormRepository;
             }
         }
 

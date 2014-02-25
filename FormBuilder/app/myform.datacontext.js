@@ -15,15 +15,16 @@ myform.factory('datacontext',
 
         }
 
-        function saveFormDefinition() {
-            return $resource('/api/FormDefinitions', {},
-            {
+        function saveForm() {
+
+            return $resource('/api/AnsweredForms', {}, {
                 create: { method: 'POST' }
             });
+
         }
 
         return {
-            saveFormDefinition: saveFormDefinition,
+            saveForm: saveForm,
             getPublishedFormDefinition: getPublishedFormDefinition
         };
 

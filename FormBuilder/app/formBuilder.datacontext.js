@@ -33,6 +33,14 @@ formBuilder.factory('datacontext',
             });
 
         }
+        
+        function getAnsweredForms() {
+
+            return $resource('api/AnsweredForms', { formDefinitionId: '@formDefinitionId', answeredFormId: '@answeredFormId' }, {
+                query: { method: 'GET', isArray: true }
+            });
+
+        }
 
         function cacheFormDefinitionSet(data) {
             formDefinitionSet = data;
@@ -50,7 +58,8 @@ formBuilder.factory('datacontext',
             formDefinitionSets: formDefinitionSets,
             saveFormDefinition: saveFormDefinition,
             getFormDefinitionById: getFormDefinitionById,
-            getPublishedFormDefinition: getPublishedFormDefinition
+            getPublishedFormDefinition: getPublishedFormDefinition,
+            getAnsweredForms: getAnsweredForms
         };
 
     }]);

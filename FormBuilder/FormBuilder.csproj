@@ -230,6 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\ControllerViews\publishedForm.controller.js" />
+    <Content Include="app\ControllerViews\publishedFormDetails.controller.js" />
     <Content Include="app\models\question.base.js" />
     <Content Include="app\models\question.date.js" />
     <Content Include="app\models\question.money.js" />
@@ -237,6 +238,7 @@
     <Content Include="app\myform.datacontext.js" />
     <Content Include="app\myform.main.js" />
     <Content Include="app\Templates\publishedForm.view.html" />
+    <Content Include="app\Templates\publishedFormDetails.view.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

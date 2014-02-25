@@ -53,7 +53,7 @@
                                 <tr data-ng-repeat="formDefinitionModel in publishedForms">
                                     <td>{{formDefinitionModel.name}}</td>
                                     <td>{{formDefinitionModel.createdDate | date:'d/M/yy h:mm a'}}</td>
-                                    <td><button type="button" class="btn btn-primary btn-sm" data-ng-click="viewFormDefinitionVersion(formDefinitionModel)">View/Edit</button></td>
+                                    <td><button type="button" class="btn btn-primary btn-sm" data-ng-click="viewPublishedFormDetails(formDefinitionModel.id)">View/Edit</button></td>
                                 </tr>
                             </tbody>
                         </table> 

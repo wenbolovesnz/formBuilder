@@ -10,7 +10,8 @@ formBuilder.value('Q', window.Q);
 formBuilder.config(['$routeProvider', function ($routeProvider) {
       $routeProvider.
           when('/', { templateUrl: 'app/templates/dashBoard.view.html', controller: 'DashBoardCtrl' }).
-          when('/newForm', { templateUrl: 'app/templates/newForm.view.html', controller: 'NewFormCtrl' }).          
+          when('/newForm', { templateUrl: 'app/templates/newForm.view.html', controller: 'NewFormCtrl' }).
+          when('/publishedFormDetails', { templateUrl: 'app/templates/publishedFormDetails.view.html', controller: 'PublishedFormDetailsCtrl' }).
           otherwise({ redirectTo: '/' });
   }]);
 
