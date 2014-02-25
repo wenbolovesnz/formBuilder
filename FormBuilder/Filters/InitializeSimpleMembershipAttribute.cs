@@ -26,7 +26,9 @@ namespace FormBuilder.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<FormBuilderContext>(null);
+                //Database.SetInitializer<FormBuilderContext>(null);
+                Database.SetInitializer(
+               new MigrateDatabaseToLatestVersion<FormBuilderContext, FormBuilderMigrationsConfiguration>());
 
                 try
                 {
