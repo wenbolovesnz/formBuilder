@@ -16,6 +16,10 @@ formBuilder.controller('PublishedFormDetailsCtrl',
 
             });
         }
+        
+        $scope.getAnsweredForm = function (id) {
+            window.location = '/#answeredForm/'+ id;
+        };
 
         
 

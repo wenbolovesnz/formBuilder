@@ -21,7 +21,8 @@
                             <tbody>
                                 <tr data-ng-repeat="answeredForm in answeredForms">
                                     <td>{{answeredForm.answeredDate | date:'d/M/yy h:mm a'}}</td>
-                                    <td><button type="button" class="btn btn-primary btn-sm">View</button></td>
+                                    <td><button type="button" class="btn btn-primary btn-sm"
+                                        data-ng-click="getAnsweredForm(answeredForm.id)">View</button></td>
                                 </tr>
                             </tbody>
                         </table> 

@@ -229,6 +229,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\ControllerViews\answeredForm.controller.js" />
     <Content Include="app\ControllerViews\publishedForm.controller.js" />
     <Content Include="app\ControllerViews\publishedFormDetails.controller.js" />
     <Content Include="app\models\question.base.js" />

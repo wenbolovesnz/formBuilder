@@ -40,7 +40,8 @@ namespace FormBuilder
                 "~/app/formBuilder.datacontext.js",
                 "~/app/ControllerViews/dashBoard.controller.js",
                 "~/app/ControllerViews/newForm.controller.js",
-                "~/app/ControllerViews/publishedFormDetails.controller.js"
+                "~/app/ControllerViews/publishedFormDetails.controller.js",
+                "~/app/ControllerViews/answeredForm.controller.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/myform").Include(

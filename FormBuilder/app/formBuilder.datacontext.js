@@ -52,6 +52,13 @@ formBuilder.factory('datacontext',
                 create: { method: 'POST'}
             });
         }
+        
+        function publishFormDefinition() {
+            return $resource('api/FormDefinitions/Publish/:id', {id: "@id"},
+            {
+                publish: { method: 'POST' }
+            });
+        }
 
         return {
             cacheFormDefinitionSet:cacheFormDefinitionSet,
@@ -59,7 +66,8 @@ formBuilder.factory('datacontext',
             saveFormDefinition: saveFormDefinition,
             getFormDefinitionById: getFormDefinitionById,
             getPublishedFormDefinition: getPublishedFormDefinition,
-            getAnsweredForms: getAnsweredForms
+            getAnsweredForms: getAnsweredForms,
+            publishFormDefinition: publishFormDefinition
         };
 
     }]);

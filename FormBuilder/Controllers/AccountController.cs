@@ -85,11 +85,13 @@ namespace FormBuilder.Controllers
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, propertyValues: new 
+                    {
+                        ForceChangePassword = false,
+                        UserType = model.UserTypeId
+                    });
                     WebSecurity.Login(model.UserName, model.Password);
-
-                    InitiateDatabaseForNewUser(model.UserName, model.UserTypeId);
-                    
+                    InitiateDatabaseForNewUser(model.UserName, model.UserTypeId);                    
                     FormsAuthentication.SetAuthCookie(model.UserName, createPersistentCookie: false);
                     return Json(new { success = true, redirect = returnUrl });
                 }
@@ -113,7 +115,7 @@ namespace FormBuilder.Controllers
             User user = _applicationUnit.UserRepository.Get(m => m.UserName == userName).First();
             user.UserType = (UserType)userTypeId;
             user.Organization = new Organization();
-            Role adminRole = _applicationUnit.RoleRepository.Get(m => m.RoleId == (int)RoleTypes.Admin).FirstOrDefault(); 
+            Role adminRole = _applicationUnit.RoleRepository.Get(m => m.RoleId == (int)RoleTypes.Admin).First(); 
             user.Roles.Add(adminRole);
             _applicationUnit.UserRepository.Update(user);
             _applicationUnit.SaveChanges();

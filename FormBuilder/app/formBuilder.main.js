@@ -11,6 +11,7 @@ formBuilder.config(['$routeProvider', function ($routeProvider) {
       $routeProvider.
           when('/', { templateUrl: 'app/templates/dashBoard.view.html', controller: 'DashBoardCtrl' }).
           when('/newForm', { templateUrl: 'app/templates/newForm.view.html', controller: 'NewFormCtrl' }).
+          when('/answeredForm/:id', { templateUrl: 'app/templates/publishedForm.view.html', controller: 'AnsweredFormCtrl' }).
           when('/publishedFormDetails', { templateUrl: 'app/templates/publishedFormDetails.view.html', controller: 'PublishedFormDetailsCtrl' }).
           otherwise({ redirectTo: '/' });
   }]);

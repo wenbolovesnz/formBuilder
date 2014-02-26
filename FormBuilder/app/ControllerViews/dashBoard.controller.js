@@ -22,6 +22,12 @@ formBuilder.controller('DashBoardCtrl',
             $scope.formDefinitionSets = datacontext.formDefinitionSets().query();
         };
 
+        $scope.publish = function(id) {
+            var a = datacontext.publishFormDefinition().publish({ id: id }, function() {
+                
+            });
+
+        };
         $scope.viewFormDefinitionVersion = function(formDefinitionModel) {
             window.location = '/#newForm/' + '?formDefinitionId=' + formDefinitionModel.id;
         };

@@ -1,4 +1,6 @@
-﻿using FormBuilder.Business.Entities;
+﻿using System.Web;
+using System.Web.Http.Controllers;
+using FormBuilder.Business.Entities;
 using FormBuilder.Data;
 using System;
 using System.Collections.Generic;
@@ -61,6 +63,30 @@ namespace FormBuilder.Controllers.Api
                 return formDefinitionModel;
             }
 
+        }
+
+        [HttpPost]
+        public HttpResponseMessage  Publish(int id)
+        {
+            User currentUser = _applicationUnit.UserRepository.GetByID(WebSecurity.CurrentUserId);
+            FormDefinition formDefinition = _applicationUnit.FormDefinationRepository.Get(filter: m => m.Id == id, includeProperties: "FormDefinitionSet").First();
+
+            if (formDefinition.FormDefinitionSet.OrganizationId == currentUser.OrganizationId)
+            {
+                if (formDefinition.IsPublished)
+                {
+                    formDefinition.IsPublished = false;
+                }
+                else
+                {
+                    formDefinition.IsPublished = true;
+                    formDefinition.PublishedDate = System.DateTime.Now;
+                }
+                _applicationUnit.FormDefinationRepository.Update(formDefinition);
+                _applicationUnit.SaveChanges();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            return Request.CreateResponse(HttpStatusCode.Forbidden);            
         }
 
         //post, save a form definition, create a new form definition set if new, or just add form definition to its parent

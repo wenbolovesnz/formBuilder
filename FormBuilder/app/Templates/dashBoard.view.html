@@ -22,7 +22,17 @@
                                         <td>{{$index + 1}}</td>
                                         <td>{{formDefinitionModel.name}}</td>
                                         <td>{{formDefinitionModel.createdDate | date:'d/M/yy h:mm a'}}</td>
-                                        <td><button type="button" class="btn btn-primary btn-sm" data-ng-click="viewFormDefinitionVersion(formDefinitionModel)">View/Edit</button></td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                              <button type="button" class="btn btn-primary"
+                                                        data-ng-click="viewFormDefinitionVersion(formDefinitionModel)">View/Edit</button>
+                                              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                              <ul class="dropdown-menu">
+                                                <li><a href="javascript:void(0);" data-ng-click="publish(formDefinitionModel.id)">Publish</a></li>
+                                              </ul>
+                                            </div>
+                                                                                        
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table> 
@@ -52,8 +62,17 @@
                             <tbody>
                                 <tr data-ng-repeat="formDefinitionModel in publishedForms">
                                     <td>{{formDefinitionModel.name}}</td>
-                                    <td>{{formDefinitionModel.createdDate | date:'d/M/yy h:mm a'}}</td>
-                                    <td><button type="button" class="btn btn-primary btn-sm" data-ng-click="viewPublishedFormDetails(formDefinitionModel.id)">View/Edit</button></td>
+                                    <td>{{formDefinitionModel.createdDate | date:'d/M/yy h:mm a'}}</td>                                    
+                                    <td>
+                                        <div class="btn-group btn-group-sm">
+                                            <button type="button" class="btn btn-primary"
+                                                    data-ng-click="viewPublishedFormDetails(formDefinitionModel.id)">View</button>
+                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="javascript:void(0);" data-ng-click="publish(formDefinitionModel.id)">Un-Publish</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>                                                                        
                                 </tr>
                             </tbody>
                         </table> 
