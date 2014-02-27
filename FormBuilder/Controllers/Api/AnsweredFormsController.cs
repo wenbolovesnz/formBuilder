@@ -38,7 +38,7 @@ namespace FormBuilder.Controllers.Api
             else
             {
                 IList<AnsweredForm> answeredForms =
-                    _applicationUnit.AnsweredFormRepository.Get(filter: m => m.Id == answeredFormId && m.OrganizationId == currentUser.OrganizationId).ToList();
+                    _applicationUnit.AnsweredFormRepository.Get(filter: m => m.Id == answeredFormId && m.OrganizationId == currentUser.OrganizationId, includeProperties: "Questions").ToList();
                 return answeredForms;
             }              
         }

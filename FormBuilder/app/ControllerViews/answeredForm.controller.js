@@ -7,47 +7,48 @@ formBuilder.controller('AnsweredFormCtrl',
     function ($scope, datacontext, $routeParams) {
 
         if ($routeParams.id) {
-                $scope.questions = [];
+            $scope.questions = [];
             
-                var formDefinition = datacontext.getAnsweredForms().query({ formDefinitionId: 0, answeredFormId: $routeParams.id }, function () {
-                $scope.formName = formDefinition.name;
-                $scope.formDefinitionSetId = formDefinition.formDefinitionSetId;
-                $scope.formDefinitionId = formDefinition.id;
-                angular.forEach(formDefinition.questions, function (question, index) {
-                    var newQuestion = {};
-                    var label = question.questionText;
-                    var type = question.questionType;
-                    var isRequired = question.isRequired;
-                    switch (type) {
-                        case 1:
-                            newQuestion = new QuestionInt({ label: label, type: type, isRequired: isRequired });
-                            break;
-                        case 2:
-                            newQuestion = new QuestionMoney({ label: label, type: type, isRequired: isRequired });
-                            break;
-                        case 3:
-                            newQuestion = new QuestionDate({ label: label, type: type, isRequired: isRequired });
-                            break;
-                        case 5:
-                            newQuestion = new QuestionString({ label: label, type: type, isRequired: isRequired });
-                            break;
-                        case 6:
-                            if (question.answerOptions) {
-                                var answerOptions = mapAnswerOptions(question.answerOptions);
-                                newQuestion = new QuestionString({ label: label, type: type, isRequired: isRequired, answerOptions: answerOptions });
-                            }
-                            break;
-                        case 7:
-                            if (question.answerOptions) {
-                                var answerOptions = mapAnswerOptions(question.answerOptions);
-                                newQuestion = new QuestionMultiSelect({ label: label, type: type, isRequired: isRequired, answerOptions: answerOptions });
-                            }
-                            break;
-                        default:
-                            newQuestion = new QuestionString({ label: label, type: type, isRequired: isRequired });
-                    }
-                    $scope.questions.push(newQuestion);
-                });
+            var formDefinition = datacontext.getAnsweredForms().query({ formDefinitionId: 0, answeredFormId: $routeParams.id }, function () {
+            $scope.answeredForm = formDefinition[0];
+                    
+            $scope.formName = $scope.answeredForm.formName;
+
+            angular.forEach($scope.answeredForm.questions, function (question, index) {
+                var newQuestion = {};
+                var label = question.questionText;
+                var type = question.questionType;
+                var isRequired = question.isRequired;
+                switch (type) {
+                    case 1:
+                        newQuestion = new QuestionInt({ label: label, type: type, isRequired: isRequired, value: question.value });
+                        break;
+                    case 2:
+                        newQuestion = new QuestionMoney({ label: label, type: type, isRequired: isRequired, value: question.value });
+                        break;
+                    case 3:
+                        newQuestion = new QuestionDate({ label: label, type: type, isRequired: isRequired, value: question.value });
+                        break;
+                    case 5:
+                        newQuestion = new QuestionString({ label: label, type: type, isRequired: isRequired, value: question.value });
+                        break;
+                    case 6:
+                        if (question.answerOptions) {
+                            var answerOptions = mapAnswerOptions(question.answerOptions);
+                            newQuestion = new QuestionString({ label: label, type: type, isRequired: isRequired, answerOptions: answerOptions, value: question.value });
+                        }
+                        break;
+                    case 7:
+                        if (question.answerOptions) {
+                            var answerOptions = mapAnswerOptions(question.answerOptions);
+                            newQuestion = new QuestionMultiSelect({ label: label, type: type, isRequired: isRequired, answerOptions: answerOptions, value: question.value });
+                        }
+                        break;
+                    default:
+                        newQuestion = new QuestionString({ label: label, type: type, isRequired: isRequired, value: question.value });
+                }
+                $scope.questions.push(newQuestion);
+            });
 
             });
         }

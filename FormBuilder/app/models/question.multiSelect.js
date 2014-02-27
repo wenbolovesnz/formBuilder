@@ -1,12 +1,16 @@
 ﻿function QuestionMultiSelect(model) {
     Question.call(this, model);
-
-    this.subQuestions = [];
     var self = this;
-    $.each(this.answerOptions, function(index, subQuestion) {
-        self.subQuestions.push(new SubQuestion(subQuestion));
-    });
     
+    if (model.value) {
+        this.subQuestions = JSON.parse(model.value);
+    } else {
+        this.subQuestions = [];
+        $.each(this.answerOptions, function (index, subQuestion) {
+            self.subQuestions.push(new SubQuestion(subQuestion));
+        });
+    }
+        
     function SubQuestion(subQuestion) {
         this.label = subQuestion;
         this.value = false;        
@@ -29,6 +33,8 @@ QuestionMultiSelect.prototype.validate = function () {
             hasValue = true;
         }
     });
+    
+    self.value = JSON.stringify(self.subQuestions);
 
     if (!hasValue) {
         this.error = true;

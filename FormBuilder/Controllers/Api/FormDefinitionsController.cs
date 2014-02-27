@@ -129,14 +129,15 @@ namespace FormBuilder.Controllers.Api
                      CreatedBy = currentUser.Id,
                      CreatedDate = System.DateTime.Now,
                      FormDefinitionSet = formDefinitionSet,
+                     FormDefinitionSetId = formDefinitionSet.Id,
                      FormName = formDefinitionModel.Name,
                      User = currentUser,
                      Questions = formDefinitionModel.Questions
                  };
 
-                 formDefinitionSet.FormDefinitions.Add(formDefinition);
+                 //formDefinitionSet.FormDefinitions.Add(formDefinition);
 
-                 _applicationUnit.FormDefinitionSetRepository.Update(formDefinitionSet);
+                 _applicationUnit.FormDefinationRepository.Insert(formDefinition);
                  _applicationUnit.SaveChanges();
 
              }

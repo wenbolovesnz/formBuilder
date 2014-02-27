@@ -6,6 +6,10 @@
         this.answerOptions = model.answerOptions;
     }
 
+    if (model.value) {
+        this.value = model.value;
+    }
+
     this.error = false;
     this.errorMessage = null;
     this.isString = this.type == 5;
