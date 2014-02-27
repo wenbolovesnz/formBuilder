@@ -1,13 +1,10 @@
-﻿<div>
-    {{answeredForm.length}}
-</div>
-
+﻿
 <div class="container">
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-success">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Answered Forms: {{answeredForm.length}} found </h3>
+                    <h3 class="panel-title">Answered Forms: {{answeredForms.length}} found </h3>
                 </div>
                 <div class="panel-body">                                                             
                     <div class="bs-example table-responsive">
@@ -19,10 +16,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr data-ng-repeat="answeredForm in answeredForms">
-                                    <td>{{answeredForm.answeredDate | date:'d/M/yy h:mm a'}}</td>
-                                    <td><button type="button" class="btn btn-primary btn-sm"
-                                        data-ng-click="getAnsweredForm(answeredForm.id)">View</button></td>
+                                <tr data-ng-repeat="form in answeredForms">
+                                    <td>{{form.answeredDate | date:'d/M/yy h:mm a'}}</td>
+                                    <td><a href='{{getAnsweredForm(form.id)}}'>View</a>                                        
+                                    </td>
                                 </tr>
                             </tbody>
                         </table> 
@@ -32,14 +29,12 @@
         </div>
         
         <div class="col-md-6">
-            <div class="panel panel-default">
+            <div class="panel panel-warning">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Place holder</h3>
+                    <h3 class="panel-title">Access Url</h3>
                 </div>
-                <div class="panel-body">
-                                            
-                    coming soon...
-
+                <div class="panel-body">                                            
+                    <div class="well" style="text-align: center">{{accessUrl}}</div>
                 </div>
             </div>
         </div>

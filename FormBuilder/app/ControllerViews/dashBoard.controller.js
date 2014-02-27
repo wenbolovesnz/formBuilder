@@ -12,6 +12,7 @@ formBuilder.controller('DashBoardCtrl',
                 angular.forEach(formDefinitionSet.formDefinitionModels, function (formDefinition, index) {
                     if (formDefinition.isPublished == true) {
                         $scope.publishedForms.push(formDefinition);
+                        formDefinitionSet.formDefinitionModels.splice(index, 0);
                     }
                 });
             });
@@ -23,9 +24,7 @@ formBuilder.controller('DashBoardCtrl',
         };
 
         $scope.publish = function(id) {
-            var a = datacontext.publishFormDefinition().publish({ id: id }, function() {
-                
-            });
+            datacontext.publishFormDefinition().publish({ id: id });
 
         };
         $scope.viewFormDefinitionVersion = function(formDefinitionModel) {
