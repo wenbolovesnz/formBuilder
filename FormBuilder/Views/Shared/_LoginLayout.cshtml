@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- basic styles -->
+
+    @Styles.Render("~/assets/bootstrap")
+    
+    <!--[if IE 7]>
+		  @Styles.Render("~/assets/fa-ie7")
+		<![endif]-->
+
+    <!-- page specific plugin styles -->
+
+    <!-- fonts -->
+    <!-- ace styles -->
+
+    @Styles.Render("~/assets/ace")
+
+    <!--[if lte IE 8]>
+		  @Styles.Render("~/assets/ie")
+		<![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+
+    @Scripts.Render("~/bundles/aceextra")
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+		@Scripts.Render("~/bundles/ie8")
+		<![endif]-->
+
+    @RenderSection("pageheader", required: false)
+</head>
+<body class="login-layout">
+    <div class="main-container">
+        <div class="main-content">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <div class="login-container">
+                        <div class="center">
+                            <h1>
+                                <i class="icon-leaf green"></i>
+                                <span class="orange">Form</span>
+                                <span class="white">Builder</span>
+                            </h1>
+                            <h4 class="blue">&copy; WenboTeK</h4>
+                        </div>
+
+                        <div class="space-6"></div>
+
+                        @RenderBody()
+                    </div>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
+</body>
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+
+    @Scripts.Render("~/bundles/jquery")
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+    @Scripts.Render("~/bundles/jqueryie")
+<![endif]-->
+
+<script type="text/javascript">
+    if ("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+</script>
+
+@Scripts.Render("~/bundles/bootstrap")
+
+<!-- page specific plugin scripts -->
+
+<!--[if lte IE 8]>
+	@Scripts.Render("~/bundles/excanvas")
+<![endif]-->
+
+@Scripts.Render("~/bundles/jqueryui")
+
+<!-- ace scripts -->
+
+@Scripts.Render("~/bundles/ace")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/ajaxlogin")
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    function show_box(id) {
+        jQuery('.widget-box.visible').removeClass('visible');
+        jQuery('#' + id).addClass('visible');
+    }
+</script>
+
+@RenderSection("scripts", required: false)
+
+</html>

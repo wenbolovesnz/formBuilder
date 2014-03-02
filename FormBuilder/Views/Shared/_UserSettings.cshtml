@@ -1,9 +1,37 @@
-﻿@if (Request.IsAuthenticated) {
-    <text>
-        Hello, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })
-        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" })) {
+﻿<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+    <span class="user-info">
+        <small>Welcome,</small>
+        @User.Identity.Name
+    </span>
+
+    <i class="icon-caret-down"></i>
+</a>
+
+<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+    <li>
+        <a href="@Url.Action("Manage", "Account", routeValues: null)">
+            <i class="icon-cog"></i>
+            Settings
+        </a>
+    </li>
+
+    <li>
+        <a href="#">
+            <i class="icon-user"></i>
+            Profile
+        </a>
+    </li>
+
+    <li class="divider"></li>
+
+    <li>
+        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+        {
             @Html.AntiForgeryToken()
-            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+            <a href="javascript:document.getElementById('logoutForm').submit()">
+                <i class="icon-off"></i>
+                Logout
+            </a>
         }
-    </text>
-}
+    </li>
+</ul>

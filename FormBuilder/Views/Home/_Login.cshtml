@@ -1,48 +1,76 @@
 ﻿@model FormBuilder.Models.LoginModel
 
-@using (Html.BeginForm("JsonLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "loginForm", @class = "form-horizontal" }))
-{
-    @Html.AntiForgeryToken()
+<div class="widget-body">
+    <div class="widget-main">
+        <h4 class="header blue lighter bigger">
+            <i class="icon-key green"></i>
+            Please Enter Your Login Details
+        </h4>
+
+        <div class="space-6"></div>
+
+        @using (Html.BeginForm("JsonLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "loginForm", @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
     
-    <fieldset>
-        <legend></legend>
-        
-        <div class="form-group">
-            <label class="col-md-2 control-label">@Html.LabelFor(m => m.UserName)</label>
-            <div class="col-md-10">                
-                @Html.TextBoxFor(m => m.UserName, new { autofocus = "autofocus", id = "loginName", @class = "form-control" })                
-            </div>
-            <span>
-                @Html.ValidationMessageFor(m => m.UserName)
-            </span>
+            <fieldset>
+                <legend></legend>
+                <label class="block clearfix">
+                    <span class="block input-icon input-icon-right">
+                        @Html.TextBoxFor(m => m.UserName, new { autofocus = "autofocus", id = "loginName", @class = "form-control", placeholder = "Login Name" })
+                        <i class="icon-user"></i>
+                    </span>
+                    <span>
+                        @Html.ValidationMessageFor(m => m.UserName)
+                    </span>
+                </label>
+
+                <label class="block clearfix">
+                    <span class="block input-icon input-icon-right">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                        <i class="icon-lock"></i>
+                    </span>
+                    <span>
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </span>
+                </label>
+
+                <div class="space"></div>
+
+                <div class="clearfix">
+                    <label class="inline">
+                        @Html.CheckBoxFor(m => m.RememberMe, new { @class = "ace"}) @Html.LabelFor(m => m.RememberMe, new { @class = "lbl" })
+                    </label>
+
+                    <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
+                        <i class="icon-key"></i>
+                        Login
+                    </button>
+                </div>
+
+                <div class="space-4"></div>
+            </fieldset>
+            @Html.ValidationSummary()
+        }
+
+        <div class="social-or-login center">
+            <span class="bigger-110">Or Login Using</span>
         </div>
-                
-        <div class="form-group">
-            <label class="col-md-2 control-label">@Html.LabelFor(m => m.Password)</label>
-            <div class="col-md-10">                  
-                @Html.PasswordFor(m => m.Password, new {@class="form-control"})                
-            </div>
-            <span>
-                @Html.ValidationMessageFor(m => m.Password)                
-            </span>
+
+        <div class="social-login center">
+            <a class="btn btn-primary">
+                <i class="icon-facebook"></i>
+            </a>
+
+            <a class="btn btn-info">
+                <i class="icon-twitter"></i>
+            </a>
+
+            <a class="btn btn-danger">
+                <i class="icon-google-plus"></i>
+            </a>
         </div>
-        
-        <div class="form-group">
-            <label class="col-md-2 control-label"></label>
-            <div class="col-md-10">                                  
-                <p>
-                @Html.CheckBoxFor(m => m.RememberMe)   @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })                
-                </p>
-            </div>
-        </div>
-                
-        <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
-                <input type="submit" value="Log in"  class="btn btn-default"/>
-            </div>
-        </div>                           
-       
-        @Html.ValidationSummary() 
-    </fieldset>
-    
-}
+    </div>
+    <!-- /widget-main -->
+</div>
+<!-- /widget-body -->

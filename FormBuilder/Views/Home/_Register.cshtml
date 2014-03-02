@@ -1,33 +1,63 @@
-﻿@using Ninject.Infrastructure.Language
-@model FormBuilder.Models.RegisterModel
+﻿@model FormBuilder.Models.RegisterModel
 
-@using (Html.BeginForm("JsonRegister", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { Id = "registerForm" }))
-{
-    @Html.AntiForgeryToken()
+<div class="widget-body">
+	<div class="widget-main">
+		<h4 class="header green lighter bigger">
+			<i class="icon-group blue"></i>
+			New User Registration
+		</h4>
 
-    <fieldset>
-        <legend>Registration Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName, new { id = "registerName" })
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.ConfirmPassword)
-                @Html.PasswordFor(m => m.ConfirmPassword)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.UserTypeId)
-                @Html.DropDownListFor(m => m.UserTypeId, new SelectList(ViewBag.UserTypes, "UserTypeId", "UserTypeName"), "Please select...")
-            </li>
-            <li>
-                <input type="submit" value="Sign up" />
-            </li>
-        </ol>
-        @Html.ValidationSummary()
-    </fieldset>
-}
+		<div class="space-6"></div>
+		<p>Enter your details to begin: </p>
+
+		@using (Html.BeginForm("JsonRegister", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { Id = "registerForm" }))
+		{
+			@Html.AntiForgeryToken()
+			<fieldset>
+				<legend></legend>
+				<label class="block clearfix">
+					<span class="block input-icon input-icon-right">
+						@Html.TextBoxFor(m => m.UserName, new { autofocus = "autofocus", id = "registerName", type = "email", @class = "form-control", placeholder = "User Name" })
+						<i class="icon-envelope"></i>
+					</span>
+				</label>
+
+				<label class="block clearfix">
+					<span class="block input-icon input-icon-right">
+						@Html.PasswordFor(m => m.Password, new { type = "password", @class = "form-control", placeholder = "Password" })
+						<i class="icon-lock"></i>
+					</span>
+				</label>
+
+				<label class="block clearfix">
+					<span class="block input-icon input-icon-right">
+						@Html.PasswordFor(m => m.ConfirmPassword, new { type = "password", @class = "form-control", placeholder = "Repeat password" })
+						<i class="icon-retweet"></i>
+					</span>
+				</label>
+
+				<label class="block">
+					<input type="checkbox" class="ace" />
+					<span class="lbl">I accept the
+															<a href="#">User Agreement</a>
+					</span>
+				</label>
+
+				<div class="space-24"></div>
+
+				<div class="clearfix">
+					<button type="reset" class="width-30 pull-left btn btn-sm">
+						<i class="icon-refresh"></i>
+						Reset
+					</button>
+
+					<button type="submit" class="width-65 pull-right btn btn-sm btn-success">
+						Register
+															<i class="icon-arrow-right icon-on-right"></i>
+					</button>
+				</div>
+			</fieldset>
+			@Html.ValidationSummary()
+		}
+	</div>
+</div>

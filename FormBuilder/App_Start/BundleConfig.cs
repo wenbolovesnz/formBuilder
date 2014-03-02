@@ -1,24 +1,57 @@
-﻿using System.Web;
+﻿using System;
+using System.Web;
 using System.Web.Optimization;
 
 namespace FormBuilder
 {
     public class BundleConfig
     {
+        public static void AddDefaultIgnorePatterns(IgnoreList ignoreList)
+        {
+            if (ignoreList == null)
+                throw new ArgumentNullException("ignoreList");
+            ignoreList.Ignore("*.intellisense.js");
+            ignoreList.Ignore("*-vsdoc.js");
+            ignoreList.Ignore("*.debug.js", OptimizationMode.WhenEnabled);
+            //ignoreList.Ignore("*.min.js", OptimizationMode.WhenDisabled);
+            ignoreList.Ignore("*.min.css", OptimizationMode.WhenDisabled);
+        }
+
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/bootstrap.js",
+            bundles.IgnoreList.Clear();
+            AddDefaultIgnorePatterns(bundles.IgnoreList);
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryie").Include(
+                        "~/assets/js/uncompressed/jquery-1.10.2.js",
                         "~/Scripts/moment.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                        "~/assets/js/uncompressed/jquery-2.0.3.js",
+                        "~/Scripts/moment.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                        "~/assets/js/uncompressed/bootstrap.js",
+                        "~/assets/js/typeahead-bs2.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/excanvas").Include(
+                "~/assets/js/uncompressed/excanvas.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/ace").Include(
+                "~/assets/js/uncompressed/ace-elements.js",
+                "~/assets/js/uncompressed/ace.js"
+                ));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-                        "~/Scripts/jquery-ui-{version}.js"));
+                        "~/assets/js/uncompressed/jquery-ui-{version}.js",
+                        "~/assets/js/uncompressed/jquery.ui.touch-punch.js",
+                        "~/assets/js/uncompressed/jquery.slimscroll.js"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
-                        "~/Scripts/jquery.validate*"));
+                        "~/assets/js/uncompressed/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                         "~/Scripts/angular.js",
@@ -62,11 +95,32 @@ namespace FormBuilder
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                //"~/Content/Site.css",
-                //"~/Content/formBuilderList.css",
-                "~/Content/bootstrap.css",
-                "~/Content/font-awesome.css"
+            bundles.Add(new ScriptBundle("~/bundles/ie7").Include(
+                "~/assets/js/uncompressed/excanvas.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/ie8").Include(
+                "~/assets/js/html5shiv.js",
+                "~/assets/js/uncompressed/respond.src.js/"));
+
+            bundles.Add(new ScriptBundle("~/bundles/aceextra").Include(
+                "~/assets/js/uncompressed/ace-extra.js"));
+
+            bundles.Add(new StyleBundle("~/assets/bootstrap")
+                .Include("~/assets/css/uncompressed/bootstrap.css")
+                .Include("~/assets/css/uncompressed/font-awesome.css"));
+
+            bundles.Add(new StyleBundle("~/assets/fa-ie7").Include(
+                "~/assets/css/uncompressed/font-awesome-ie7.css"
+                ));
+
+            bundles.Add(new StyleBundle("~/assets/ie").Include(
+                "~/assets/css/uncompressed/ace-ie.css"));
+
+            bundles.Add(new StyleBundle("~/assets/ace").Include(
+                "~/assets/css/ace-fonts.css",
+                "~/assets/css/uncompressed/ace.css",
+                "~/assets/css/uncompressed/ace-rtl.css",
+                "~/assets/css/uncompressed/ace-skins.css"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(

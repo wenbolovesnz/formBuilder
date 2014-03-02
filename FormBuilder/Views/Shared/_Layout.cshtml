@@ -2,31 +2,155 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
     <title>@ViewBag.Title</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    @Styles.Render("~/Content/themes/base/css")
+    <!-- basic styles -->
+
+    @Styles.Render("~/assets/bootstrap")
+
+    <!--[if IE 7]>
+		  @Styles.Render("~/assets/fa-ie7")
+		<![endif]-->
+
+    <!-- page specific plugin styles -->
+
+    <!-- fonts -->
+    <!-- ace styles -->
+
+    @Styles.Render("~/assets/ace")
+
+    <!--[if lte IE 8]>
+		  @Styles.Render("~/assets/ie")
+		<![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+
+    @Scripts.Render("~/bundles/aceextra")
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+		@Scripts.Render("~/bundles/ie8")
+		<![endif]-->
+
+    @RenderSection("pageheader", required: false)
 </head>
-    <body>
-        <!--[if lt IE 9]><p class="error" style="clear:both;">'Angular' requires browser support for defined properties.</p><![endif]-->
-        <div id="userSettings" class="pull-right">
-            @Html.Partial("_UserSettings")
+<body>
+    <div class="navbar navbar-default" id="navbar">
+            <div class="navbar-container" id="navbar-container">
+                <div class="navbar-header pull-left">
+                    <a href="#" class="navbar-brand">
+                        <small>
+                            <i class="icon-leaf"></i>
+                            Form Builder Admin
+                        </small>
+                    </a>
+                    <!-- /.brand -->
+                </div>
+                <!-- /.navbar-header -->
+                <div class="navbar-header pull-right" role="navigation">
+                    <ul class="nav ace-nav">
+                        <li class="light-blue">
+                            @Html.Partial("_UserSettings")
+                        </li>
+                    </ul>
+                    <!-- /.ace-nav -->
+                </div>
+                <!-- /.navbar-header -->
+            </div>
+            <!-- /.container -->
+        </div>
+    <div class="main-container" id="main-container">
+            <div class="main-container-inner">
+
+                <a class="menu-toggler" id="menu-toggler" href="#">
+                    <span class="menu-text"></span>
+                </a>
+
+                <div class="sidebar" id="sidebar">
+                    <ul class="nav nav-list">
+                        <li class="active">
+                            <a href="#/dashboard">
+                                <i class="icon-dashboard"></i>
+                                <span class="menu-text">Dashboard </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/newForm">
+                                <i class="icon-list-alt"></i>
+								<span class="menu-text"> New Form </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-list -->
+                    <div class="sidebar-collapse" id="sidebar-collapse">
+                        <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+                    </div>
+                </div>
+                <!--[if lt IE 9]><p class="error" style="clear:both;">'Angular' requires browser support for defined properties.</p><![endif]-->
+                <div class="main-content" data-ng-app="formBuilder">
+                    @RenderBody()
+                </div>
+                <!-- /.main-content -->
+            </div>
+            <!-- /.main-container-inner -->
         </div>
 
-        <div id="body">
-            @RenderBody()
-        </div>
+    <footer style="position: absolute; bottom: 5px;">
+        <p>&copy; @DateTime.Now.Year - Form Builder</p>
+    </footer>
+</body>
 
-        <footer style="position: absolute; bottom: 5px;">
-            <p>&copy; @DateTime.Now.Year - Form Builder</p>
-        </footer>
+<!-- basic scripts -->
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/jqueryui")
-        @Scripts.Render("~/bundles/ajaxlogin")
-        @RenderSection("scripts", required: false)
-    </body>
+<!--[if !IE]> -->
+
+@Scripts.Render("~/bundles/jquery")
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+    @Scripts.Render("~/bundles/jqueryie")
+<![endif]-->
+
+<script type="text/javascript">
+    if ("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+</script>
+
+@Scripts.Render("~/bundles/bootstrap")
+
+<!-- page specific plugin scripts -->
+
+<!--[if lte IE 8]>
+	@Scripts.Render("~/bundles/excanvas")
+<![endif]-->
+
+@Scripts.Render("~/bundles/jqueryui")
+
+<!-- ace scripts -->
+
+@Scripts.Render("~/bundles/ace")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/ajaxlogin")
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    function show_box(id) {
+        $('.widget-box.visible').removeClass('visible');
+        $('#' + id).addClass('visible');
+    }
+
+    $('.nav-list a').click(function() {
+        $("#sidebar .nav-list li").removeClass('active');
+        $(this).parent().addClass('active');
+        
+    });
+</script>
+
+@RenderSection("scripts", required: false)
+
 </html>

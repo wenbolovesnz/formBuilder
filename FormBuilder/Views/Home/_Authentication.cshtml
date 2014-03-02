@@ -1,16 +1,84 @@
-﻿    <div class="well row" id="loginPanel">
-        <div id="localLoginPanel" class="col-md-6" >
-            <h2>Log in</h2>
-            @Html.Partial("_Login")
+﻿@{
+    ViewBag.Title = "Login Page - FormBuilder Admin";
+}
+
+@section pageheader {
+    <meta name="description" content="FormBuilder Login Page" />
+}
+
+<div class="position-relative">
+    <div id="login-box" class="login-box visible widget-box no-border">
+        @Html.Partial("_Login")
+        <div class="toolbar clearfix">
+            <div>
+                <a href="#" onclick="show_box('forgot-box'); return false;" class="forgot-password-link">
+                    <i class="icon-arrow-left"></i>
+                    I forgot my password
+                </a>
+            </div>
+
+            <div>
+                <a href="#" onclick="show_box('signup-box'); return false;" class="user-signup-link">I want to register
+													<i class="icon-arrow-right"></i>
+                </a>
+            </div>
         </div>
-        <div id="socialLoginPanel" class="col-md-6">
-            <h2>Log in using another service</h2>
-            @Html.Action("ExternalLoginsList", "Account", new { ReturnUrl = ViewBag.ReturnUrl })
-        </div>
-        <p>First time here? <a id="showRegister">Sign up</a></p>
     </div>
-    <div class="well" id="registerPanel" style="display: none">
-        <h2>Sign up</h2>
+    <!-- /login-box -->
+
+    <div id="forgot-box" class="forgot-box widget-box no-border">
+        <div class="widget-body">
+            <div class="widget-main">
+                <h4 class="header red lighter bigger">
+                    <i class="icon-key"></i>
+                    Retrieve Password
+                </h4>
+
+                <div class="space-6"></div>
+                <p>
+                    Enter your email and to receive instructions
+                </p>
+
+                <form>
+                    <fieldset>
+                        <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                                <input type="email" class="form-control" placeholder="Email" />
+                                <i class="icon-envelope"></i>
+                            </span>
+                        </label>
+
+                        <div class="clearfix">
+                            <button type="submit" class="width-35 pull-right btn btn-sm btn-danger">
+                                <i class="icon-lightbulb"></i>
+                                Send Me!
+                            </button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <!-- /widget-main -->
+
+            <div class="toolbar center">
+                <a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">Back to login
+												<i class="icon-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        <!-- /widget-body -->
+    </div>
+    <!-- /forgot-box -->
+
+    <div id="signup-box" class="signup-box widget-box no-border">
         @Html.Partial("_Register")
-        <p>Already signed up? <a id="showLogin">Log in</a></p>
+        <!-- /widget-body -->
+        <div class="toolbar center">
+            <a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
+                <i class="icon-arrow-left"></i>
+                Back to login
+            </a>
+        </div>
     </div>
+    <!-- /signup-box -->
+</div>
+<!-- /position-relative -->
