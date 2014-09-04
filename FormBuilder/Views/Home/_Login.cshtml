@@ -38,10 +38,6 @@
                 <div class="space"></div>
 
                 <div class="clearfix">
-                    <label class="inline">
-                        @Html.CheckBoxFor(m => m.RememberMe, new { @class = "ace"}) @Html.LabelFor(m => m.RememberMe, new { @class = "lbl" })
-                    </label>
-
                     <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
                         <i class="icon-key"></i>
                         Login
@@ -52,24 +48,6 @@
             </fieldset>
             @Html.ValidationSummary()
         }
-
-        <div class="social-or-login center">
-            <span class="bigger-110">Or Login Using</span>
-        </div>
-
-        <div class="social-login center">
-            <a class="btn btn-primary">
-                <i class="icon-facebook"></i>
-            </a>
-
-            <a class="btn btn-info">
-                <i class="icon-twitter"></i>
-            </a>
-
-            <a class="btn btn-danger">
-                <i class="icon-google-plus"></i>
-            </a>
-        </div>
     </div>
     <!-- /widget-main -->
 </div>
