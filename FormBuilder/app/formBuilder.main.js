@@ -1,12 +1,6 @@
-﻿/* main: startup script creates the 'formBuilder' module and adds custom Ng directives */
-
-// 'formBuilder' is the one Angular (Ng) module in this app
-// 'formBuilder' module is in global namespace
+﻿
 window.formBuilder = angular.module('formBuilder', ['ngRoute', 'ngResource']);
 
-formBuilder.value('Q', window.Q);
-
-// Configure routes
 formBuilder.config(['$routeProvider', function ($routeProvider) {
       $routeProvider.
           when('/', { templateUrl: 'app/templates/dashBoard.view.html', controller: 'DashBoardCtrl' }).
@@ -16,8 +10,6 @@ formBuilder.config(['$routeProvider', function ($routeProvider) {
           otherwise({ redirectTo: '/' });
   }]);
 
-//#region Ng directives
-/*  We extend Angular with custom data bindings written as Ng directives */
 formBuilder.directive('onFocus', function () {
         return {
             restrict: 'A',
@@ -113,4 +105,3 @@ if (!Modernizr.input.placeholder) {
         };
     });
 }
-//#endregion 

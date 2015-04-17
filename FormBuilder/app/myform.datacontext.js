@@ -1,11 +1,5 @@
-﻿/* datacontext: data access and model management layer */
-
-// create and add datacontext to the Ng injector
-// constructor function relies on Ng injector
-// to provide service dependencies
-myform.factory('datacontext',
-    ['Q', '$resource',
-    function (Q, $resource) {
+﻿myform.factory('datacontext',
+    ['$resource',function ($resource) {
 
         function getPublishedFormDefinition() {
 

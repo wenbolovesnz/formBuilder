@@ -1,20 +1,13 @@
 ﻿/* main: startup script creates the 'myform' module and adds custom Ng directives */
 
-// 'myform' is the one Angular (Ng) module in this app
-// 'myform' module is in global namespace
 window.myform = angular.module('myform', ['ngRoute', 'ngResource']);
 
-myform.value('Q', window.Q);
-
-// Configure routes
 myform.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
         when('/org/:orgId/formName/:formName', { templateUrl: '/app/templates/publishedForm.view.html', controller: 'PublishedFormCtrl' }).
         otherwise({ redirectTo: '/' });
 }]);
 
-//#region Ng directives
-/*  We extend Angular with custom data bindings written as Ng directives */
 myform.directive('onFocus', function () {
     return {
         restrict: 'A',
@@ -110,4 +103,3 @@ if (!Modernizr.input.placeholder) {
         };
     });
 }
-//#endregion 

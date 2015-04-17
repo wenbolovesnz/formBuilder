@@ -17,8 +17,7 @@ using FormBuilder.Data;
 
 namespace FormBuilder.Controllers
 {
-    [Authorize]
-    [InitializeSimpleMembership]
+    [Authorize]    
     public class AccountController : Controller
     {
         private IApplicationUnit _applicationUnit;

@@ -4,8 +4,8 @@
 // constructor function relies on Ng injector
 // to provide service dependencies
 formBuilder.factory('datacontext',
-    ['Q', '$resource',
-    function (Q, $resource) {
+    ['$resource',
+    function ($resource) {
         var formDefinitionSet;
         
         function formDefinitionSets(force) {

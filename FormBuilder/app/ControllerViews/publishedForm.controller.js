@@ -3,8 +3,7 @@
  *     $scope - context variable for the view to which the view binds
  */
 myform.controller('PublishedFormCtrl',
-    ['$scope', 'datacontext', '$routeParams',
-    function ($scope, datacontext, $routeParams) {
+    ['$scope', 'datacontext', '$routeParams',function ($scope, datacontext, $routeParams) {
 
         if ($routeParams.orgId && $routeParams.formName) {
             $scope.questions = [];

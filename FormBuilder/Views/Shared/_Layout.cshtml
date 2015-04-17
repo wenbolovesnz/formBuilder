@@ -10,10 +10,6 @@
 
     @Styles.Render("~/assets/bootstrap")
 
-    <!--[if IE 7]>
-		  @Styles.Render("~/assets/fa-ie7")
-		<![endif]-->
-
     <!-- page specific plugin styles -->
 
     <!-- fonts -->
@@ -21,9 +17,6 @@
 
     @Styles.Render("~/assets/ace")
 
-    <!--[if lte IE 8]>
-		  @Styles.Render("~/assets/ie")
-		<![endif]-->
 
     <!-- inline styles related to this page -->
 
@@ -31,11 +24,6 @@
 
     @Scripts.Render("~/bundles/aceextra")
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-
-    <!--[if lt IE 9]>
-		@Scripts.Render("~/bundles/ie8")
-		<![endif]-->
 
     @RenderSection("pageheader", required: false)
 </head>
@@ -107,37 +95,16 @@
 
 <!-- basic scripts -->
 
-<!--[if !IE]> -->
 
 @Scripts.Render("~/bundles/jquery")
 
-<!-- <![endif]-->
-
-<!--[if IE]>
-    @Scripts.Render("~/bundles/jqueryie")
-<![endif]-->
-
-<script type="text/javascript">
-    if ("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
-</script>
-
 @Scripts.Render("~/bundles/bootstrap")
-
-<!-- page specific plugin scripts -->
-
-<!--[if lte IE 8]>
-	@Scripts.Render("~/bundles/excanvas")
-<![endif]-->
-
-@Scripts.Render("~/bundles/jqueryui")
-
-<!-- ace scripts -->
 
 @Scripts.Render("~/bundles/ace")
 @Scripts.Render("~/bundles/modernizr")
 @Scripts.Render("~/bundles/ajaxlogin")
 
-<!-- inline scripts related to this page -->
+
 <script type="text/javascript">
     function show_box(id) {
         $('.widget-box.visible').removeClass('visible');
@@ -150,6 +117,10 @@
         
     });
 </script>
+
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-route.js"></script>
+<script src="~/Scripts/angular-resource.js"></script>
 
 @RenderSection("scripts", required: false)
 

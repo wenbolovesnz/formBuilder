@@ -23,10 +23,6 @@ namespace FormBuilder
             bundles.IgnoreList.Clear();
             AddDefaultIgnorePatterns(bundles.IgnoreList);
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryie").Include(
-                        "~/assets/js/uncompressed/jquery-1.10.2.js",
-                        "~/Scripts/moment.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/assets/js/uncompressed/jquery-2.0.3.js",
                         "~/Scripts/moment.js"));
@@ -42,21 +38,6 @@ namespace FormBuilder
                 "~/assets/js/uncompressed/ace-elements.js",
                 "~/assets/js/uncompressed/ace.js"
                 ));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-                        "~/assets/js/uncompressed/jquery-ui-{version}.js",
-                        "~/assets/js/uncompressed/jquery.ui.touch-punch.js",
-                        "~/assets/js/uncompressed/jquery.slimscroll.js"
-                        ));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.unobtrusive*",
-                        "~/assets/js/uncompressed/jquery.validate*"));
-
-            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                        "~/Scripts/angular.js",
-                        "~/Scripts/angular-route.js",
-                        "~/Scripts/angular-resource.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/ajaxlogin").Include(
                 "~/app/ajaxlogin.js"));

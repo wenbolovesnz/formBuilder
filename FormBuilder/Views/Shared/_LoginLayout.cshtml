@@ -68,19 +68,12 @@
 
 <!-- basic scripts -->
 
-<!--[if !IE]> -->
 
-    @Scripts.Render("~/bundles/jquery")
 
-<!-- <![endif]-->
+@Scripts.Render("~/bundles/jquery")
 
-<!--[if IE]>
-    @Scripts.Render("~/bundles/jqueryie")
-<![endif]-->
 
-<script type="text/javascript">
-    if ("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
-</script>
+
 
 @Scripts.Render("~/bundles/bootstrap")
 
@@ -90,8 +83,6 @@
 	@Scripts.Render("~/bundles/excanvas")
 <![endif]-->
 
-@Scripts.Render("~/bundles/jqueryui")
-
 <!-- ace scripts -->
 
 @Scripts.Render("~/bundles/ace")
@@ -99,13 +90,18 @@
 @Scripts.Render("~/bundles/ajaxlogin")
 
 <!-- inline scripts related to this page -->
-<script type="text/javascript">
-    function show_box(id) {
-        jQuery('.widget-box.visible').removeClass('visible');
-        jQuery('#' + id).addClass('visible');
-    }
-</script>
+    <script type="text/javascript">
+        function show_box(id) {
+            jQuery('.widget-box.visible').removeClass('visible');
+            jQuery('#' + id).addClass('visible');
+        }
+    </script>
+    
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-route.js"></script>
+<script src="~/Scripts/angular-resource.js"></script>
 
-@RenderSection("scripts", required: false)
+
+    @RenderSection("scripts", required: false)
 
 </html>
