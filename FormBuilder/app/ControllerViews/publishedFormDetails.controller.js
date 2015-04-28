@@ -3,7 +3,7 @@
  *     $scope - context variable for the view to which the view binds
  */
 formBuilder.controller('PublishedFormDetailsCtrl',
-    ['$scope', 'datacontext', '$routeParams',function ($scope, datacontext, $routeParams) {
+    ['$scope', 'datacontext', '$routeParams', '$resource', function ($scope, datacontext, $routeParams, $resource) {
 
         if ($routeParams.formDefinitionId) {
             var answeredForms = datacontext.getAnsweredForms().query({ formDefinitionId: $routeParams.formDefinitionId, answeredFormId: 0 }, function () {
@@ -11,16 +11,22 @@ formBuilder.controller('PublishedFormDetailsCtrl',
             });
         }
 
-        $scope.formDefinitionSets = datacontext.formDefinitionSets(false); //need to learn how to use real angular cache
-        $scope.orgId = $scope.formDefinitionSets[0].organizationModel.id;
-        angular.forEach($scope.formDefinitionSets, function (formDefinitionSet, index) {
-            angular.forEach(formDefinitionSet.formDefinitionModels, function (formDefinition, index) {
-                if (formDefinition.id == $routeParams.formDefinitionId) {
-                    $scope.formDefinition = formDefinition;
-                    $scope.accessUrl = window.location.origin + "/myform/" + $scope.orgId + "/" + $scope.formDefinition.name;
-                }
+        var FormDefinitionSets = $resource('api/FormDefinitionSets', {}, {
+            query: { method: 'GET', isArray: true }
+        });
+
+        $scope.formDefinitionSets = FormDefinitionSets.query({}, function(results){
+            $scope.orgId = $scope.formDefinitionSets[0].organizationModel.id;
+            angular.forEach($scope.formDefinitionSets, function (formDefinitionSet, index) {
+                angular.forEach(formDefinitionSet.formDefinitionModels, function (formDefinition, index) {
+                    if (formDefinition.id == $routeParams.formDefinitionId) {
+                        $scope.formDefinition = formDefinition;
+                        $scope.accessUrl = window.location.origin + "/myform/" + $scope.orgId + "/" + $scope.formDefinition.name;
+                    }
+                });
             });
         });
+
         
         $scope.getAnsweredForm = function (id) {
             return '#/answeredForm/'+ id;

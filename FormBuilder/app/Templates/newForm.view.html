@@ -43,7 +43,7 @@
                         </div>
                         <div class="widget-body">
                             <div class="widget-main no-padding">
-                                <form name="questionConfig" data-ng-submit="addQuestion()">
+                                <form name="questionConfig" data-ng-submit="addQuestion()" novalidate>
                                     <fieldset>
                                         <div>
                                             <label for="questionLabel">Question Label:</label>
@@ -59,12 +59,11 @@
                                         <div>
                                             <label for="select">Selects</label>
                                             <select class="form-control"
-                                                data-ng-options="type.name for type in questionTypes"
-                                                data-ng-model="questionType"
-                                                id="select"
-                                                name="questionType"
-                                                required>
-                                            </select>
+                                                    data-ng-options="type.name for type in questionTypes"
+                                                    data-ng-model="questionType"
+                                                    id="select"
+                                                    name="questionType"
+                                                    required></select>
                                             <span class="help-line">
                                                 <span class="error" data-ng-show="questionConfig.questionType.$error.required && !questionConfig.questionType.$pristine">Required!</span>
                                             </span>
@@ -82,10 +81,10 @@
                                             <div>
                                                 <label class="pull-left">
                                                     <input type="checkbox"
-                                                        name="questionIsRequired"
-                                                        class="ace"
-                                                        data-ng-model="isRequired"
-                                                        data-ng-init="isRequired=true">
+                                                           name="questionIsRequired"
+                                                           class="ace"
+                                                           data-ng-model="isRequired"
+                                                           data-ng-init="isRequired=true">
                                                     <span class="lbl"></span>
                                                 </label>
                                             </div>
@@ -114,51 +113,51 @@
                 </div>
                 <div class="col-md-8">
                     <div class="well">
-                        <form name="formQuickView"
-                            class="form-horizontal">
+                        <form name="formQuickView" novalidate
+                              class="form-horizontal">
                             <fieldset>
                                 <legend>{{formName}}</legend>
                                 <div class="form-group" data-ng-repeat="question in questions">
                                     <label class="col-md-2 control-label">{{question.label}}:</label>
 
-                                    <div class="col-md-7">
+                                    <div class="col-md-6">
                                         <input type="text"
-                                            data-ng-show="!question.isBoolean && !question.isSelect && !question.isMultiSelect && !question.isDate"
-                                            class="form-control"
-                                            data-ng-model="question.value"
-                                            data-ng-change="validateQuestion(question)"
-                                            data-ng-required="question.isRequired && !question.isBoolean && !question.isSelect  && !question.isMultiSelect && !question.isDate">
+                                               data-ng-show="!question.isBoolean && !question.isSelect && !question.isMultiSelect && !question.isDate"
+                                               class="form-control"
+                                               data-ng-model="question.value"
+                                               data-ng-change="validateQuestion(question)"
+                                               data-ng-required="question.isRequired && !question.isBoolean && !question.isSelect  && !question.isMultiSelect && !question.isDate">
                                         <input type="text"
-                                            data-ng-show="question.isDate"
-                                            class="form-control"
-                                            data-ng-model="question.value"
-                                            data-ng-change="validateQuestion(question)"
-                                            data-ng-required="question.isRequired && question.isDate"
-                                            placeholder="Date/Month/Year">
+                                               data-ng-show="question.isDate"
+                                               class="form-control"
+                                               data-ng-model="question.value"
+                                               data-ng-change="validateQuestion(question)"
+                                               data-ng-required="question.isRequired && question.isDate"
+                                               placeholder="Date/Month/Year">
                                         <input type="checkbox"
-                                            data-ng-show="question.isBoolean"
-                                            class="form-control form-control-no-shadow"
-                                            style="margin-bottom: 8px; margin-top: 10px;"
-                                            data-ng-model="question.value"
-                                            data-ng-init="question.value"
-                                            data-ng-change="validateQuestion(question)"
-                                            data-ng-true-value="YES" data-ng-false-value="NO">
+                                               data-ng-show="question.isBoolean"
+                                               class="form-control form-control-no-shadow"
+                                               style="margin-bottom: 8px; margin-top: 10px;"
+                                               data-ng-model="question.value"
+                                               data-ng-init="question.value"
+                                               data-ng-change="validateQuestion(question)"
+                                               data-ng-true-value="YES" data-ng-false-value="NO">
                                         <select class="form-control"
-                                            data-ng-show="question.isSelect"
-                                            data-ng-model="question.value"
-                                            data-ng-change="validateQuestion(question)"
-                                            data-ng-options="option for option in question.answerOptions"
-                                            data-ng-required="question.isRequired && question.isSelect">
+                                                data-ng-show="question.isSelect"
+                                                data-ng-model="question.value"
+                                                data-ng-change="validateQuestion(question)"
+                                                data-ng-options="option for option in question.answerOptions"
+                                                data-ng-required="question.isRequired && question.isSelect">
                                             <option value="">-- Please Select --</option>
                                         </select>
 
                                         <div class="row" data-ng-show="question.isMultiSelect" data-ng-repeat="option in question.subQuestions">
                                             <div class="">
                                                 <input type="checkbox" style="height: 20px;"
-                                                    class="col-md-4"
-                                                    data-ng-model="option.value"
-                                                    data-ng-change="validateQuestion(question)"
-                                                    data-ng-required="question.isRequired && question.isMultiSelect">
+                                                       class="col-md-4"
+                                                       data-ng-model="option.value"
+                                                       data-ng-change="validateQuestion(question)"
+                                                       data-ng-required="question.isRequired && question.isMultiSelect">
 
                                                 <label class="col-md-8" style="text-align: left; height: 20px; padding-top: 4px">
                                                     {{option.label}}
@@ -167,13 +166,13 @@
                                         </div>
 
                                         <span class="error"
-                                            data-ng-show="question.error">{{question.errorMessage}}</span>
+                                              data-ng-show="question.error">{{question.errorMessage}}</span>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <div class="btn-group">
                                             <button data-ng-click="moveUp($index)" type="button" class="btn btn-default"><i class="icon-arrow-up"></i></button>
                                             <button data-ng-click="moveDown($index)" type="button" class="btn btn-default"><i class="icon-arrow-down"></i></button>
-                                            <button data-ng-click="remove($index)" type="button" class="btn btn-default"><i class="icon-eye-close"></i></button>
+                                            <button data-ng-click="remove($index)" type="button" class="btn btn-default"><i class="icon-remove"></i></button>
                                         </div>
                                     </div>
 

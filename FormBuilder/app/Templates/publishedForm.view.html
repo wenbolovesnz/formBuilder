@@ -1,8 +1,8 @@
 ﻿
 <div class="container">
-    <div class="row">
+    <div class="row" ng-show="!answered">
         
-        <div class="col-md-12">
+        <div class="col-md-12" style="float: none!important;">
             <div class="well">
                 <form name="formQuickView"
                       class="form-horizontal">
@@ -44,14 +44,14 @@
                                 </select>
                                 
                                 <div class="row" data-ng-show= question.isMultiSelect data-ng-repeat="option in question.subQuestions">
-                                    <div class="">
-                                        <input type="checkbox" style="height: 20px;"                                              
+                                    <div class="row" style="padding-left:20px;">
+                                        <input type="checkbox" style="height: 20px; line-height:20px;" id="{{'checkbox' + $index}}"
                                                class="col-md-4"
                                                data-ng-model="option.value"
                                                data-ng-change="validateQuestion(question)"
                                                data-ng-required="question.isRequired && question.isMultiSelect">                                     
                                                
-                                        <label class="col-md-8" style="text-align: left; height: 20px; padding-top: 4px">
+                                        <label class="col-md-8" for="{{'checkbox' + $index}}" style="text-align: left; line-height:20px; height: 20px; padding-top: 4px">
                                             {{option.label}}
                                         </label>    
                                     </div>
@@ -70,6 +70,11 @@
             
 
         </div>
+
+
     </div>
 
+    <div class="well" ng-show="answered">
+        <b>Form is successfully submitted. Thank you.</b>
+    </div>
 </div>
