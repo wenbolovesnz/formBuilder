@@ -3,7 +3,7 @@
 
         function getPublishedFormDefinition() {
 
-            return $resource('/api/FormDefinitions', { orgId: '@orgId', formName: '@formName' }, {
+            return $resource('/api/FormDefinitions', { orgId: '@orgId', formName: '@formName', accessKey: '@accessKey' }, {
                 query: { method: 'GET' }
             });
 

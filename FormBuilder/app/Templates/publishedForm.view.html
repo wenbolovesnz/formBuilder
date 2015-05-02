@@ -1,8 +1,21 @@
 ﻿
 <div class="container">
-    <div class="row" ng-show="!answered">
-        
-        <div class="col-md-12" style="float: none!important;">
+    
+    <div class="well" ng-show="questions.length == 0">
+        <form>
+            <fieldset>
+                <legend>Please enter the <b>Access Key</b></legend>
+                <input type="password" ng-model="accessKey" />
+                <button ng-click="loadForm()">Submit</button>
+                <div class="error" ng-show="accessKeyError != null">
+                    {{accessKeyError}}
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="row" ng-show="!answered">        
+        <div class="col-md-12" style="float: none!important;" ng-show="questions.length > 0">
             <div class="well">
                 <form name="formQuickView"
                       class="form-horizontal">
@@ -66,12 +79,8 @@
                                 data-ng-click ="saveFormDefinition()" class="btn btn-primary pull-right">Submit</button>                                                           
                     </fieldset>
                 </form>
-            </div>
-            
-
+            </div>            
         </div>
-
-
     </div>
 
     <div class="well" ng-show="answered">

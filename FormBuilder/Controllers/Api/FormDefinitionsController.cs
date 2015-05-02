@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using System.Web.Helpers;
 using System.Web.Http.Controllers;
 using FormBuilder.Business.Entities;
 using FormBuilder.Data;
@@ -26,7 +27,7 @@ namespace FormBuilder.Controllers.Api
         }
 
         //Get 
-        public Object Get(int id, int orgId, string formName)
+        public Object Get(int id, int orgId, string formName, string accessKey)
         {
             if (id != 0)
             {
@@ -39,7 +40,8 @@ namespace FormBuilder.Controllers.Api
                         Name = formDefinition.FormName,
                         Id = formDefinition.Id,
                         FormDefinitionSetId = formDefinition.FormDefinitionSetId,
-                        Questions = formDefinition.Questions.ToList()
+                        Questions = formDefinition.Questions.ToList(),
+                        AccessKey = formDefinition.AccessKey
                     };
 
                 return formDefinitionModel;
@@ -50,14 +52,20 @@ namespace FormBuilder.Controllers.Api
                     _applicationUnit.FormDefinationRepository.Get(includeProperties: "Questions",
                                                                   filter: m => m.FormName == formName 
                                                                           && m.FormDefinitionSet.OrganizationId == orgId
-                                                                          && m.IsPublished).FirstOrDefault();
+                                                                          && m.IsPublished && m.AccessKey == accessKey).FirstOrDefault();
+
+                if(formDefinition == null)
+                {
+                    return new {success = false};
+                }
 
                 FormDefinitionModel formDefinitionModel = new FormDefinitionModel()
                     {
                         Name = formDefinition.FormName,
                         Id = formDefinition.Id,
                         FormDefinitionSetId = formDefinition.FormDefinitionSetId,
-                        Questions = formDefinition.Questions.ToList()
+                        Questions = formDefinition.Questions.ToList(),
+                        AccessKey = formDefinition.AccessKey
                     };
 
                 return formDefinitionModel;
@@ -76,11 +84,15 @@ namespace FormBuilder.Controllers.Api
                 if (formDefinition.IsPublished)
                 {
                     formDefinition.IsPublished = false;
+                    formDefinition.AccessKey = null;
                 }
                 else
                 {
                     formDefinition.IsPublished = true;
                     formDefinition.PublishedDate = System.DateTime.Now;
+                    string accesskey = Guid.NewGuid().ToString();
+                    accesskey = accesskey.Substring(0, 5);
+                    formDefinition.AccessKey = accesskey;
                 }
                 _applicationUnit.FormDefinationRepository.Update(formDefinition);
                 _applicationUnit.SaveChanges();
@@ -146,4 +158,6 @@ namespace FormBuilder.Controllers.Api
             return new {success = success};
         }
     }
+
+
 }

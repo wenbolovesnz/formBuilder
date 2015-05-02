@@ -61,6 +61,7 @@ namespace FormBuilder.Models
             formDefinitionModel.CreatedDate = formDefinition.CreatedDate;
             formDefinitionModel.FormDefinitionSetId = formDefinition.FormDefinitionSetId;
             formDefinitionModel.IsPublished = formDefinition.IsPublished;
+            formDefinitionModel.AccessKey = formDefinition.AccessKey;
 
             if (formDefinition.Questions != null)
             {

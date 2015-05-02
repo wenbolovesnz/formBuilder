@@ -7,6 +7,8 @@ using System.Web.Http;
 using FormBuilder.Business.Entities;
 using FormBuilder.Data;
 using FormBuilder.Models;
+using Microsoft.Azure;
+using Microsoft.ServiceBus.Messaging;
 using WebMatrix.WebData;
 
 namespace FormBuilder.Controllers.Api
@@ -46,7 +48,7 @@ namespace FormBuilder.Controllers.Api
         public AnsweredForm Post([FromBody] AnsweredForm answeredForm)
         {
             FormDefinition formDefinition =
-                _applicationUnit.FormDefinationRepository.Get(includeProperties: "Questions,FormDefinitionSet", filter: m => m.Id == answeredForm.FormDefinitionId).First();
+                _applicationUnit.FormDefinationRepository.Get(includeProperties: "Questions,FormDefinitionSet,User", filter: m => m.Id == answeredForm.FormDefinitionId).First();
 
             //security check, maybe need more robust than this.
             if (!formDefinition.IsPublished || formDefinition.Questions.Count != answeredForm.Questions.Count ||
@@ -84,6 +86,24 @@ namespace FormBuilder.Controllers.Api
 
             _applicationUnit.AnsweredFormRepository.Insert(newAnseredForm);
             _applicationUnit.SaveChanges();
+
+            // Create the queue if it does not exist already
+            string connectionString =
+                CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+
+            QueueClient client = QueueClient.CreateFromConnectionString(connectionString, "formengine");
+
+            // Create message, passing a string message for the body
+            BrokeredMessage message = new BrokeredMessage("Answered Form Received.");
+
+            // Set some addtional custom app-specific properties
+            message.Properties["FormName"] = formDefinition.FormName;
+            message.Properties["ReceivedDateTime"] = DateTime.Now.ToShortTimeString();
+            message.Properties["To"] = formDefinition.User.UserName;            
+
+            // Send message to the queue
+            client.Send(message);
+            
 
             return newAnseredForm;
         }

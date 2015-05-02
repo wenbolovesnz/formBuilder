@@ -14,6 +14,7 @@ namespace FormBuilder.Models
         public DateTime CreatedDate { get; set; }
         public UserModel CreatedByUser { get; set; }
         public bool IsPublished { get; set; }
+        public string AccessKey { get; set; }
 
         public IList<Question> Questions { get; set; }
 

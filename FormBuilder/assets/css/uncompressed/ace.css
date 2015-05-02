@@ -14347,3 +14347,7 @@ th[aria-selected=true] .ui-jqgrid-sortable {
     top: 65px;
   }
 }
+
+.error {
+    color: red;
+}
